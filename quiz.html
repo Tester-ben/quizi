@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ôn Tập Trắc Nghiệm</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-block">
+        <div class="brand-mark">QZ</div>
+        <div>
+          <h1>Quiz Practice</h1>
+          <p>Ôn tập trắc nghiệm theo đề cương</p>
+        </div>
+      </div>
+
+      <nav class="side-nav" aria-label="Chọn chế độ làm bài">
+        <button class="nav-btn active" data-mode-button="fixed" type="button">
+          <span>01</span>
+          <strong>20 câu cố định</strong>
+        </button>
+        <button class="nav-btn" data-mode-button="outline" type="button">
+          <span>02</span>
+          <strong>Theo đề cương</strong>
+        </button>
+        <button class="nav-btn" data-mode-button="random" type="button">
+          <span>03</span>
+          <strong>Random 20 câu</strong>
+        </button>
+        <button class="nav-btn" data-mode-button="bank" type="button">
+          <span>04</span>
+          <strong>Ngân hàng câu hỏi</strong>
+        </button>
+      </nav>
+
+      <div class="sidebar-card">
+        <div class="small-label">Tổng câu hiện có</div>
+        <div class="big-number" id="totalQuestionCount">0</div>
+        <p>File hiện tại có 29 câu. Sau này bạn thêm đến 362 câu trong <code>quiz-data.js</code>.</p>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Trắc nghiệm online</p>
+          <h2 id="pageTitle">Ôn tập 20 câu</h2>
+          <p id="pageSubtitle">Chọn chế độ, làm bài và bấm nộp để xem điểm.</p>
+        </div>
+        <div class="top-actions">
+          <button class="ghost-btn" id="resetProgressBtn" type="button">Reset tiến độ</button>
+          <button class="primary-btn" id="startMainBtn" type="button">Bắt đầu làm bài</button>
+        </div>
+      </header>
+
+      <section class="hero-grid" id="homePanel">
+        <article class="mode-card selected" data-mode-card="fixed">
+          <div class="mode-icon">📌</div>
+          <h3>1. Bài 20 câu cố định</h3>
+          <p>Lấy 20 câu đầu tiên trong đề cương. Đáp án giữ nguyên A/B/C/D để bạn kiểm tra bản gốc.</p>
+          <button class="card-btn" type="button" data-start-mode="fixed">Làm 20 câu cố định</button>
+        </article>
+
+        <article class="mode-card" data-mode-card="outline">
+          <div class="mode-icon">🔁</div>
+          <h3>2. Theo đề cương, đảo đáp án</h3>
+          <p>Lấy 20 câu theo thứ tự đề cương: 1–20, sau đó 21–40... Đáp án A/B/C/D sẽ được đảo ngẫu nhiên.</p>
+          <button class="card-btn" type="button" data-start-mode="outline">Làm theo đề cương</button>
+        </article>
+
+        <article class="mode-card" data-mode-card="random">
+          <div class="mode-icon">🎲</div>
+          <h3>3. Random 20 câu</h3>
+          <p>Lấy ngẫu nhiên 20 câu bất kỳ trong toàn bộ ngân hàng câu hỏi. Phù hợp để luyện trước khi thi.</p>
+          <button class="card-btn" type="button" data-start-mode="random">Random đề mới</button>
+        </article>
+      </section>
+
+      <section class="stats-row" id="statsPanel">
+        <div class="stat-box"><span>Đã trả lời</span><strong id="answeredCount">0/20</strong></div>
+        <div class="stat-box"><span>Đúng tạm tính</span><strong id="liveCorrectCount">0</strong></div>
+        <div class="stat-box"><span>Chế độ</span><strong id="currentModeLabel">Cố định</strong></div>
+        <div class="stat-box"><span>Thời gian</span><strong id="timerText">00:00</strong></div>
+      </section>
+
+      <section class="quiz-panel hidden" id="quizPanel">
+        <div class="quiz-toolbar">
+          <div>
+            <h3 id="quizTitle">Bài làm</h3>
+            <p id="quizMeta">20 câu trắc nghiệm</p>
+          </div>
+          <div class="toolbar-actions">
+            <button class="ghost-btn" id="newQuizBtn" type="button">Đổi đề</button>
+            <button class="primary-btn" id="submitBtn" type="button">Nộp bài</button>
+          </div>
+        </div>
+        <form id="quizForm" class="question-list"></form>
+      </section>
+
+      <section class="result-panel hidden" id="resultPanel">
+        <div class="result-card">
+          <p class="eyebrow">Kết quả</p>
+          <h3 id="scoreTitle">Bạn đạt 0/20</h3>
+          <p id="scoreSubtitle">Xem chi tiết từng câu bên dưới.</p>
+          <div class="result-actions">
+            <button class="primary-btn" id="retryBtn" type="button">Làm lại bài này</button>
+            <button class="ghost-btn" id="nextBatchBtn" type="button">Làm 20 câu tiếp theo</button>
+            <button class="ghost-btn" id="backHomeBtn" type="button">Về trang chọn đề</button>
+          </div>
+        </div>
+        <div id="reviewList" class="review-list"></div>
+      </section>
+
+      <section class="bank-panel hidden" id="bankPanel">
+        <div class="quiz-toolbar">
+          <div>
+            <h3>Ngân hàng câu hỏi</h3>
+            <p>Tìm nhanh câu hỏi trong đề cương hiện có.</p>
+          </div>
+          <input id="searchInput" class="search-input" type="search" placeholder="Tìm câu hỏi, mã câu, đáp án..." />
+        </div>
+        <div id="bankList" class="bank-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="quiz-data.js"></script>
+  <script src="quiz.js"></script>
+</body>
+</html>
