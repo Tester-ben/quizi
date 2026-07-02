@@ -17,22 +17,14 @@
         </div>
       </div>
 
-      <nav class="side-nav" aria-label="Chọn chế độ làm bài">
-        <button class="nav-btn active" data-mode-button="fixed" type="button">
+      <nav class="side-nav" aria-label="Điều hướng nhanh">
+        <button class="nav-btn active" id="homeSidebarBtn" type="button">
           <span>01</span>
-          <strong>Chọn khoảng câu</strong>
+          <strong>Trang chủ</strong>
         </button>
-        <button class="nav-btn" data-mode-button="outline" type="button">
+        <button class="nav-btn" id="wrongSidebarBtn" type="button" disabled>
           <span>02</span>
-          <strong>Đảo câu theo khoảng</strong>
-        </button>
-        <button class="nav-btn" data-mode-button="random" type="button">
-          <span>03</span>
-          <strong>Random 45 câu</strong>
-        </button>
-        <button class="nav-btn" data-mode-button="bank" type="button">
-          <span>04</span>
-          <strong>Ngân hàng câu hỏi</strong>
+          <strong>Câu làm sai</strong>
         </button>
       </nav>
 
@@ -105,7 +97,6 @@
 
       <section class="stats-row" id="statsPanel">
         <div class="stat-box"><span>Đã trả lời</span><strong id="answeredCount">0/0</strong></div>
-        <div class="stat-box"><span>Đúng tạm tính</span><strong id="liveCorrectCount">0</strong></div>
         <div class="stat-box"><span>Chế độ</span><strong id="currentModeLabel">Cố định</strong></div>
         <div class="stat-box"><span>Thời gian</span><strong id="timerText">00:00</strong></div>
       </section>
@@ -131,6 +122,7 @@
           <p id="scoreSubtitle">Xem chi tiết từng câu bên dưới.</p>
           <div class="result-actions">
             <button class="primary-btn" id="retryBtn" type="button">Làm lại bài này</button>
+            <button class="ghost-btn" id="wrongOnlyBtn" type="button">Làm lại câu sai</button>
             <button class="ghost-btn" id="nextBatchBtn" type="button">Làm 20 câu tiếp theo</button>
             <button class="ghost-btn" id="backHomeBtn" type="button">Về trang chọn đề</button>
           </div>
@@ -149,6 +141,20 @@
         <div id="bankList" class="bank-list"></div>
       </section>
     </main>
+  </div>
+
+  <div class="modal-overlay" id="confirmModal" aria-hidden="true">
+    <div class="confirm-modal" role="dialog" aria-modal="true" aria-labelledby="confirmModalTitle" aria-describedby="confirmModalMessage">
+      <button class="modal-x" id="confirmModalClose" type="button" aria-label="Đóng">×</button>
+      <div class="modal-icon">↩</div>
+      <p class="eyebrow">Xác nhận thao tác</p>
+      <h3 id="confirmModalTitle">Thoát bài đang làm?</h3>
+      <p id="confirmModalMessage">Bạn có muốn thoát bài đang làm và quay về trang chủ không?</p>
+      <div class="modal-actions">
+        <button class="ghost-btn modal-cancel" id="confirmModalCancel" type="button">Ở lại</button>
+        <button class="primary-btn modal-confirm" id="confirmModalConfirm" type="button">Thoát về trang chủ</button>
+      </div>
+    </div>
   </div>
 
   <script src="quiz-data.js"></script>

@@ -35,6 +35,11 @@ const modeConfig = {
     subtitle: "Random 45 câu không trùng qua từng lượt. Có thể reset random hoặc random lại có trùng lặp.",
     label: "Random"
   },
+  wrong: {
+    title: "Làm lại câu sai",
+    subtitle: "Chỉ lấy các câu bạn làm sai hoặc chưa chọn ở bài vừa nộp để luyện lại.",
+    label: "Câu sai"
+  },
   bank: {
     title: "Ngân hàng câu hỏi",
     subtitle: "Xem và tìm nhanh toàn bộ câu hỏi đã nhập.",
@@ -44,6 +49,63 @@ const modeConfig = {
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => Array.from(document.querySelectorAll(selector));
+
+function showConfirmModal({ title, message, confirmText = "Đồng ý", cancelText = "Hủy" }) {
+  const overlay = $("#confirmModal");
+  const titleEl = $("#confirmModalTitle");
+  const messageEl = $("#confirmModalMessage");
+  const confirmBtn = $("#confirmModalConfirm");
+  const cancelBtn = $("#confirmModalCancel");
+  const closeBtn = $("#confirmModalClose");
+
+  if (!overlay || !titleEl || !messageEl || !confirmBtn || !cancelBtn || !closeBtn) {
+    return Promise.resolve(confirm(message || title || "Bạn chắc chắn chứ?"));
+  }
+
+  titleEl.textContent = title || "Xác nhận thao tác";
+  messageEl.textContent = message || "Bạn chắc chắn muốn tiếp tục?";
+  confirmBtn.textContent = confirmText;
+  cancelBtn.textContent = cancelText;
+
+  overlay.classList.add("show");
+  overlay.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+
+  return new Promise(resolve => {
+    let resolved = false;
+
+    const cleanup = (value) => {
+      if (resolved) return;
+      resolved = true;
+      overlay.classList.remove("show");
+      overlay.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("modal-open");
+      confirmBtn.removeEventListener("click", onConfirm);
+      cancelBtn.removeEventListener("click", onCancel);
+      closeBtn.removeEventListener("click", onCancel);
+      overlay.removeEventListener("click", onOverlayClick);
+      document.removeEventListener("keydown", onKeydown);
+      resolve(value);
+    };
+
+    const onConfirm = () => cleanup(true);
+    const onCancel = () => cleanup(false);
+    const onOverlayClick = (event) => {
+      if (event.target === overlay) cleanup(false);
+    };
+    const onKeydown = (event) => {
+      if (event.key === "Escape") cleanup(false);
+    };
+
+    confirmBtn.addEventListener("click", onConfirm);
+    cancelBtn.addEventListener("click", onCancel);
+    closeBtn.addEventListener("click", onCancel);
+    overlay.addEventListener("click", onOverlayClick);
+    document.addEventListener("keydown", onKeydown);
+
+    window.setTimeout(() => cancelBtn.focus(), 40);
+  });
+}
 
 function escapeHtml(value) {
   return String(value || "")
@@ -99,6 +161,26 @@ function resetRandomProgress(silent = false) {
   localStorage.removeItem(RANDOM_USED_KEY);
   updateStats();
   if (!silent) alert("Đã reset phần random. Bạn có thể random lại từ đầu.");
+}
+
+function getWrongQuestions() {
+  return state.questions.filter(question => question.userAnswer !== question.answer);
+}
+
+function setSidebarActive(activeKey) {
+  const homeBtn = $("#homeSidebarBtn");
+  const wrongBtn = $("#wrongSidebarBtn");
+  if (homeBtn) homeBtn.classList.toggle("active", activeKey === "home");
+  if (wrongBtn) wrongBtn.classList.toggle("active", activeKey === "wrong");
+}
+
+function updateWrongSidebarButton() {
+  const wrongBtn = $("#wrongSidebarBtn");
+  if (!wrongBtn) return;
+  const wrongCount = state.submitted ? getWrongQuestions().length : 0;
+  wrongBtn.disabled = wrongCount === 0;
+  const strong = wrongBtn.querySelector("strong");
+  if (strong) strong.textContent = wrongCount ? `Câu làm sai (${wrongCount})` : "Câu làm sai";
 }
 
 function getQuestionKey(question) {
@@ -232,8 +314,8 @@ function setMode(mode) {
   $("#pageSubtitle").textContent = config.subtitle;
   $("#currentModeLabel").textContent = config.label;
 
-  $$('[data-mode-button]').forEach(btn => btn.classList.toggle("active", btn.dataset.modeButton === mode));
   $$('[data-mode-card]').forEach(card => card.classList.toggle("selected", card.dataset.modeCard === mode));
+  updateWrongSidebarButton();
 
   if (mode === "bank") {
     showBank();
@@ -242,6 +324,7 @@ function setMode(mode) {
 
 function showHome() {
   stopTimer();
+  setSidebarActive("home");
   $("#homePanel").classList.remove("hidden");
   $("#quizPanel").classList.add("hidden");
   $("#resultPanel").classList.add("hidden");
@@ -251,6 +334,7 @@ function showHome() {
 }
 
 function showQuiz() {
+  setSidebarActive(null);
   $("#homePanel").classList.add("hidden");
   $("#bankPanel").classList.add("hidden");
   $("#resultPanel").classList.add("hidden");
@@ -260,6 +344,7 @@ function showQuiz() {
 
 function showBank() {
   stopTimer();
+  setSidebarActive(null);
   $("#homePanel").classList.add("hidden");
   $("#quizPanel").classList.add("hidden");
   $("#resultPanel").classList.add("hidden");
@@ -278,6 +363,7 @@ function startQuiz(mode = state.mode, options = {}) {
   state.questions = selectedQuestions;
   state.submitted = false;
   state.elapsedSeconds = 0;
+  updateWrongSidebarButton();
 
   if (!state.questions.length) {
     alert("Chưa có dữ liệu câu hỏi. Kiểm tra file quiz-data.js nha.");
@@ -367,9 +453,10 @@ function updateStats() {
     : (state.mode === "outline" ? getSelectedOutlineRange().count : 0);
   const total = state.questions.length || defaultTotal;
   const answered = state.questions.filter(q => q.userAnswer).length;
-  const correct = state.questions.filter(q => q.userAnswer && q.userAnswer === q.answer).length;
+
+  // Không tính/hiển thị số câu đúng trong lúc đang làm bài.
+  // Số câu đúng chỉ được chấm sau khi bấm "Nộp bài" trong submitQuiz().
   $("#answeredCount").textContent = `${answered}/${total}`;
-  $("#liveCorrectCount").textContent = String(correct);
   $("#totalQuestionCount").textContent = String(getBank().length);
 }
 
@@ -389,7 +476,7 @@ function submitQuiz() {
 
   const nextBatchBtn = $("#nextBatchBtn");
   if (nextBatchBtn) {
-    if (state.mode === "outline") {
+    if (state.mode === "outline" || state.mode === "wrong") {
       nextBatchBtn.style.display = "none";
     } else if (state.mode === "random" && !state.randomAllowRepeat) {
       nextBatchBtn.style.display = "";
@@ -397,6 +484,13 @@ function submitQuiz() {
     } else {
       nextBatchBtn.style.display = "none";
     }
+  }
+
+  const wrongOnlyBtn = $("#wrongOnlyBtn");
+  if (wrongOnlyBtn) {
+    const wrongCount = getWrongQuestions().length;
+    wrongOnlyBtn.style.display = wrongCount ? "" : "none";
+    wrongOnlyBtn.textContent = wrongCount ? `Làm lại ${wrongCount} câu sai` : "Làm lại câu sai";
   }
 
   localStorage.setItem(HISTORY_KEY, JSON.stringify({
@@ -411,6 +505,7 @@ function submitQuiz() {
   $("#scoreTitle").textContent = `Bạn đạt ${correct}/${total} câu`;
   $("#scoreSubtitle").textContent = `Điểm: ${percent}/100 • Thời gian: ${formatTime(state.elapsedSeconds)} • ${getResultMessage(percent)}`;
   renderReview();
+  updateWrongSidebarButton();
 
   $("#quizPanel").classList.add("hidden");
   $("#resultPanel").classList.remove("hidden");
@@ -436,10 +531,11 @@ function getDisplayedAnswerText(question, optionId) {
 function renderReview() {
   const html = state.questions.map((question, index) => {
     const isCorrect = question.userAnswer === question.answer;
+    const originalNumber = question.id || index + 1;
     return `
-      <article class="review-card ${isCorrect ? "good" : "bad"}">
+      <article class="review-card ${isCorrect ? "good" : "bad"}" id="review-question-${index}" data-review-status="${isCorrect ? "good" : "bad"}">
         <span class="review-status ${isCorrect ? "good" : "bad"}">${isCorrect ? "Đúng" : "Sai / Chưa chọn"}</span>
-        <h4>Câu ${index + 1}. ${escapeHtml(question.question)}</h4>
+        <h4>Câu ${originalNumber}. ${escapeHtml(question.question)}</h4>
         <p><strong>Bạn chọn:</strong> ${escapeHtml(getDisplayedAnswerText(question, question.userAnswer))}</p>
         <p><strong>Đáp án đúng:</strong> ${escapeHtml(getDisplayedAnswerText(question, question.answer))}</p>
       </article>`;
@@ -451,24 +547,72 @@ function retryQuiz() {
   // Làm lại cùng bộ câu hỏi nhưng vẫn đảo lại A/B/C/D để tránh học thuộc vị trí đáp án.
   state.questions = state.questions.map(q => normalizeQuizQuestion(q, true));
   state.submitted = false;
+  updateWrongSidebarButton();
   renderQuiz();
   showQuiz();
   startTimer();
   updateStats();
 }
 
-function exitToHome() {
-  const hasActiveQuiz = state.questions.length > 0 && !state.submitted && !$("#quizPanel").classList.contains("hidden");
-  const message = hasActiveQuiz
-    ? "Bạn có muốn thoát bài đang làm và quay về trang chủ không? Bài hiện tại sẽ không được lưu."
-    : "Bạn có muốn quay về trang chủ không?";
+function showWrongQuestions() {
+  const wrongQuestions = getWrongQuestions();
+  if (!state.submitted || !wrongQuestions.length) {
+    alert("Hiện chưa có câu sai. Bạn cần nộp bài trước, nếu có câu sai thì phần này sẽ mở.");
+    return;
+  }
 
-  if (!confirm(message)) return;
+  $("#homePanel").classList.add("hidden");
+  $("#quizPanel").classList.add("hidden");
+  $("#bankPanel").classList.add("hidden");
+  $("#statsPanel").classList.remove("hidden");
+  $("#resultPanel").classList.remove("hidden");
+  setSidebarActive("wrong");
+
+  const firstWrong = document.querySelector('[data-review-status="bad"]');
+  if (firstWrong) {
+    firstWrong.scrollIntoView({ behavior: "smooth", block: "center" });
+    firstWrong.classList.add("focus-wrong");
+    window.setTimeout(() => firstWrong.classList.remove("focus-wrong"), 1800);
+  }
+}
+
+function retryWrongQuestions() {
+  const wrongQuestions = getWrongQuestions();
+  if (!state.submitted || !wrongQuestions.length) {
+    alert("Không có câu sai để làm lại.");
+    return;
+  }
+
+  state.mode = "wrong";
+  state.questions = wrongQuestions.map(q => normalizeQuizQuestion(q, true));
+  state.submitted = false;
+  state.elapsedSeconds = 0;
+  updateWrongSidebarButton();
+  renderQuiz();
+  showQuiz();
+  startTimer();
+  updateStats();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+async function exitToHome() {
+  const hasActiveQuiz = state.questions.length > 0 && !state.submitted && !$("#quizPanel").classList.contains("hidden");
+  const ok = await showConfirmModal({
+    title: hasActiveQuiz ? "Thoát bài đang làm?" : "Quay về trang chủ?",
+    message: hasActiveQuiz
+      ? "Bài hiện tại sẽ không được lưu. Bạn có chắc muốn thoát và quay về trang chủ không?"
+      : "Bạn có muốn quay về trang chủ để chọn chế độ làm bài khác không?",
+    confirmText: "Thoát về trang chủ",
+    cancelText: "Ở lại"
+  });
+
+  if (!ok) return;
 
   stopTimer();
   state.questions = [];
   state.submitted = false;
   state.elapsedSeconds = 0;
+  updateWrongSidebarButton();
   state.activeRange = getSelectedRange();
   state.activeOutlineRange = getSelectedOutlineRange();
   $("#timerText").textContent = "00:00";
@@ -514,8 +658,17 @@ function bindEvents() {
     });
   }
 
-  $$('[data-mode-button]').forEach(button => {
-    button.addEventListener("click", () => setMode(button.dataset.modeButton));
+  const homeSidebarBtn = $("#homeSidebarBtn");
+  if (homeSidebarBtn) homeSidebarBtn.addEventListener("click", exitToHome);
+
+  const wrongSidebarBtn = $("#wrongSidebarBtn");
+  if (wrongSidebarBtn) wrongSidebarBtn.addEventListener("click", showWrongQuestions);
+
+  $$('[data-mode-card]').forEach(card => {
+    card.addEventListener("click", (event) => {
+      if (event.target.closest("button, input, label")) return;
+      setMode(card.dataset.modeCard);
+    });
   });
 
   $$('[data-start-mode]').forEach(button => {
@@ -530,6 +683,8 @@ function bindEvents() {
   $("#submitBtn").addEventListener("click", submitQuiz);
   $("#newQuizBtn").addEventListener("click", () => startQuiz(state.mode));
   $("#retryBtn").addEventListener("click", retryQuiz);
+  const wrongOnlyBtn = $("#wrongOnlyBtn");
+  if (wrongOnlyBtn) wrongOnlyBtn.addEventListener("click", retryWrongQuestions);
   $("#nextBatchBtn").addEventListener("click", () => {
     if (state.mode === "random") startQuiz("random");
     else startQuiz("outline");
@@ -560,7 +715,9 @@ function init() {
   syncOutlineRangeInputs();
   bindEvents();
   updateStats();
+  updateWrongSidebarButton();
   setMode("fixed");
+  setSidebarActive("home");
 }
 
 document.addEventListener("DOMContentLoaded", init);
