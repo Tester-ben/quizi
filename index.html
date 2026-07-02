@@ -26,12 +26,31 @@
           <span>02</span>
           <strong>Câu làm sai</strong>
         </button>
+        <button class="nav-btn" id="savedSidebarBtn" type="button" disabled>
+          <span>03</span>
+          <strong>Câu đã lưu</strong>
+        </button>
       </nav>
 
       <div class="sidebar-card">
         <div class="small-label">Tổng câu hiện có</div>
         <div class="big-number" id="totalQuestionCount">0</div>
         <p>Tổng số câu tự cập nhật theo file <code>quiz-data.js</code>. Sau này bạn thêm đến 362 câu vẫn chạy được.</p>
+      </div>
+
+      <div class="question-map-card hidden" id="questionMapCard" aria-label="Bảng câu hỏi trong bài">
+        <div class="question-map-head">
+          <div>
+            <div class="small-label">Khung câu hỏi</div>
+            <strong id="questionMapCount">0/0 câu</strong>
+          </div>
+          <span class="question-map-dot" title="Câu đã chọn sẽ đổi màu"></span>
+        </div>
+        <div class="question-map-legend">
+          <span><i class="legend-box legend-pending"></i>Chưa làm</span>
+          <span><i class="legend-box legend-done"></i>Đã làm</span>
+        </div>
+        <div class="question-map-grid" id="questionMapGrid"></div>
       </div>
     </aside>
 

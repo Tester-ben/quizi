@@ -1434,3 +1434,314 @@ button,
     font-size: 16px;
   }
 }
+
+/* ===============================
+   Question number navigator
+   =============================== */
+.question-map-card {
+  margin-top: 16px;
+  padding: 18px;
+  border: 1px solid rgba(148, 163, 184, .20);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(59, 130, 246, .12), transparent 40%),
+    linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.035));
+  box-shadow: 0 18px 38px rgba(0,0,0,.16);
+}
+
+.question-map-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.question-map-head strong {
+  display: block;
+  margin-top: 5px;
+  color: #f8fafc;
+  font-size: 20px;
+  letter-spacing: -.02em;
+}
+
+.question-map-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #22c55e;
+  box-shadow: 0 0 0 8px rgba(34,197,94,.12);
+}
+
+.question-map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+  color: rgba(226,232,240,.72);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.question-map-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-box {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  display: inline-block;
+  border: 1px solid rgba(148,163,184,.28);
+}
+
+.legend-pending { background: rgba(255,255,255,.06); }
+.legend-done { background: #22c55e; border-color: #22c55e; }
+
+.question-map-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  max-height: 310px;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.question-map-grid::-webkit-scrollbar { width: 6px; }
+.question-map-grid::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(148,163,184,.35);
+}
+
+.question-map-btn {
+  min-width: 0;
+  height: 36px;
+  border: 1px solid rgba(148,163,184,.22);
+  border-radius: 11px;
+  background: rgba(255,255,255,.055);
+  color: rgba(226,232,240,.82);
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform .16s ease, background .16s ease, border-color .16s ease, color .16s ease;
+}
+
+.question-map-btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,.55);
+  color: #fff;
+}
+
+.question-map-btn.answered {
+  background: #22c55e;
+  border-color: #22c55e;
+  color: #052e16;
+  box-shadow: 0 10px 20px rgba(34,197,94,.18);
+}
+
+.question-map-btn.correct {
+  background: #16a34a;
+  border-color: #16a34a;
+  color: #fff;
+}
+
+.question-map-btn.wrong {
+  background: #ef4444;
+  border-color: #ef4444;
+  color: #fff;
+}
+
+.question-card.jump-focus,
+.review-card.jump-focus {
+  animation: jumpFocusPulse 1.35s ease;
+}
+
+@keyframes jumpFocusPulse {
+  0% { box-shadow: 0 0 0 0 rgba(37,99,235,.35), 0 16px 36px rgba(15,23,42,.05); }
+  45% { box-shadow: 0 0 0 8px rgba(37,99,235,.18), 0 24px 60px rgba(37,99,235,.16); }
+  100% { box-shadow: 0 0 0 0 rgba(37,99,235,0), 0 16px 36px rgba(15,23,42,.05); }
+}
+
+@media (max-width: 1000px) {
+  .question-map-card {
+    margin-top: 14px;
+  }
+
+  .question-map-grid {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-height: none;
+    padding: 2px 2px 8px;
+  }
+
+  .question-map-btn {
+    min-width: 44px;
+    height: 38px;
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .question-map-card {
+    padding: 14px;
+    border-radius: 20px;
+  }
+
+  .question-map-head strong {
+    font-size: 17px;
+  }
+
+  .question-map-legend {
+    font-size: 10px;
+  }
+}
+
+/* ===============================
+   Patch: make question navigator taller/vertical in sidebar
+   =============================== */
+.question-map-card {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.question-map-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  max-height: min(560px, calc(100vh - 385px));
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2px 4px 4px 0;
+}
+
+.question-map-btn {
+  height: 48px;
+  border-radius: 15px;
+  font-size: 15px;
+}
+
+@media (min-width: 901px) {
+  .sidebar {
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 900px) {
+  .question-map-card {
+    margin-top: 12px;
+  }
+
+  .question-map-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(42px, 1fr));
+    max-height: 220px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 2px 2px 6px;
+  }
+
+  .question-map-btn {
+    min-width: 0;
+    height: 42px;
+    flex: initial;
+    border-radius: 13px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 560px) {
+  .question-map-grid {
+    grid-template-columns: repeat(4, minmax(40px, 1fr));
+    max-height: 210px;
+  }
+}
+
+
+/* ===============================
+   Patch: saved questions feature
+   =============================== */
+.question-head {
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.save-question-btn {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 9px 13px;
+  border: 1px solid rgba(15, 23, 42, .14);
+  border-radius: 999px;
+  background: rgba(255,255,255,.86);
+  color: #111827;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(15,23,42,.06);
+  transition: transform .16s ease, border-color .16s ease, background .16s ease, color .16s ease, box-shadow .16s ease;
+}
+
+.save-question-btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(245, 158, 11, .55);
+  box-shadow: 0 14px 30px rgba(245,158,11,.12);
+}
+
+.save-question-btn span {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.save-question-btn.saved {
+  border-color: rgba(245, 158, 11, .55);
+  background: linear-gradient(135deg, #f59e0b, #facc15);
+  color: #111827;
+}
+
+.save-question-btn.compact {
+  min-height: 34px;
+  padding: 7px 11px;
+  font-size: 11px;
+}
+
+.review-topline,
+.bank-topline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.review-topline .review-status {
+  position: static;
+  display: inline-flex;
+  width: fit-content;
+}
+
+.bank-topline h4 {
+  margin-bottom: 0;
+}
+
+@media (max-width: 720px) {
+  .question-head,
+  .review-topline,
+  .bank-topline {
+    display: grid;
+    gap: 10px;
+  }
+
+  .save-question-btn {
+    justify-self: start;
+  }
+}

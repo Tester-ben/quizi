@@ -5,6 +5,7 @@ const DEFAULT_RANGE_END = 20;
 const STORAGE_KEY = "quiz_outline_cursor_v1";
 const HISTORY_KEY = "quiz_latest_result_v1";
 const RANDOM_USED_KEY = "quiz_random_used_question_ids_v1";
+const SAVED_QUESTIONS_KEY = "quiz_saved_question_ids_v1";
 
 const state = {
   mode: "fixed",
@@ -39,6 +40,11 @@ const modeConfig = {
     title: "Làm lại câu sai",
     subtitle: "Chỉ lấy các câu bạn làm sai hoặc chưa chọn ở bài vừa nộp để luyện lại.",
     label: "Câu sai"
+  },
+  saved: {
+    title: "Làm lại câu đã lưu",
+    subtitle: "Luyện riêng những câu bạn đã bấm lưu trước đó. Đáp án A/B/C/D vẫn được đảo ngẫu nhiên.",
+    label: "Câu đã lưu"
   },
   bank: {
     title: "Ngân hàng câu hỏi",
@@ -157,6 +163,61 @@ function setRandomUsedIds(usedIds) {
   localStorage.setItem(RANDOM_USED_KEY, JSON.stringify(Array.from(usedIds).map(String)));
 }
 
+function getSavedQuestionIds() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(SAVED_QUESTIONS_KEY) || "[]");
+    return Array.isArray(parsed) ? parsed.map(String) : [];
+  } catch (error) {
+    return [];
+  }
+}
+
+function setSavedQuestionIds(ids) {
+  const uniqueIds = Array.from(new Set(ids.map(String)));
+  localStorage.setItem(SAVED_QUESTIONS_KEY, JSON.stringify(uniqueIds));
+}
+
+function isQuestionSaved(questionId) {
+  return getSavedQuestionIds().includes(String(questionId));
+}
+
+function toggleSavedQuestion(questionId) {
+  const id = String(questionId || "");
+  if (!id) return;
+  const savedIds = getSavedQuestionIds();
+  const exists = savedIds.includes(id);
+  const nextIds = exists ? savedIds.filter(savedId => savedId !== id) : [...savedIds, id];
+  setSavedQuestionIds(nextIds);
+  updateSavedButtons();
+  updateSavedSidebarButton();
+}
+
+function getSavedQuestionsFromBank() {
+  const bank = getBank();
+  const savedIds = getSavedQuestionIds();
+  return savedIds
+    .map(id => bank.find(question => String(question.id) === String(id)))
+    .filter(Boolean);
+}
+
+function updateSavedButtons() {
+  $$('[data-save-question]').forEach(button => {
+    const saved = isQuestionSaved(button.dataset.saveQuestion);
+    button.classList.toggle('saved', saved);
+    button.setAttribute('aria-pressed', saved ? 'true' : 'false');
+    button.innerHTML = saved ? '<span>★</span> Đã lưu' : '<span>☆</span> Lưu câu';
+  });
+}
+
+function updateSavedSidebarButton() {
+  const savedBtn = $("#savedSidebarBtn");
+  if (!savedBtn) return;
+  const savedCount = getSavedQuestionIds().length;
+  savedBtn.disabled = savedCount === 0;
+  const strong = savedBtn.querySelector("strong");
+  if (strong) strong.textContent = savedCount ? `Câu đã lưu (${savedCount})` : "Câu đã lưu";
+}
+
 function resetRandomProgress(silent = false) {
   localStorage.removeItem(RANDOM_USED_KEY);
   updateStats();
@@ -170,8 +231,10 @@ function getWrongQuestions() {
 function setSidebarActive(activeKey) {
   const homeBtn = $("#homeSidebarBtn");
   const wrongBtn = $("#wrongSidebarBtn");
+  const savedBtn = $("#savedSidebarBtn");
   if (homeBtn) homeBtn.classList.toggle("active", activeKey === "home");
   if (wrongBtn) wrongBtn.classList.toggle("active", activeKey === "wrong");
+  if (savedBtn) savedBtn.classList.toggle("active", activeKey === "saved");
 }
 
 function updateWrongSidebarButton() {
@@ -181,6 +244,56 @@ function updateWrongSidebarButton() {
   wrongBtn.disabled = wrongCount === 0;
   const strong = wrongBtn.querySelector("strong");
   if (strong) strong.textContent = wrongCount ? `Câu làm sai (${wrongCount})` : "Câu làm sai";
+}
+
+function getQuestionDisplayNumber(question, index) {
+  return question?.id || index + 1;
+}
+
+function hideQuestionNavigator() {
+  const card = $("#questionMapCard");
+  const grid = $("#questionMapGrid");
+  if (card) card.classList.add("hidden");
+  if (grid) grid.innerHTML = "";
+}
+
+function jumpToQuestion(index) {
+  const target = state.submitted
+    ? document.getElementById(`review-question-${index}`)
+    : document.getElementById(`question-${index}`);
+  if (!target) return;
+  target.scrollIntoView({ behavior: "smooth", block: "center" });
+  target.classList.add("jump-focus");
+  window.setTimeout(() => target.classList.remove("jump-focus"), 1400);
+}
+
+function renderQuestionNavigator() {
+  const card = $("#questionMapCard");
+  const grid = $("#questionMapGrid");
+  const count = $("#questionMapCount");
+  if (!card || !grid || !count) return;
+
+  if (!state.questions.length) {
+    hideQuestionNavigator();
+    return;
+  }
+
+  const answered = state.questions.filter(question => question.userAnswer).length;
+  count.textContent = `${answered}/${state.questions.length} câu`;
+  card.classList.remove("hidden");
+
+  grid.innerHTML = state.questions.map((question, index) => {
+    const answeredClass = question.userAnswer ? "answered" : "pending";
+    let resultClass = "";
+    if (state.submitted) {
+      resultClass = question.userAnswer === question.answer ? " correct" : " wrong";
+    }
+    return `<button class="question-map-btn ${answeredClass}${resultClass}" type="button" data-question-jump="${index}" aria-label="Nhảy tới câu ${escapeHtml(getQuestionDisplayNumber(question, index))}">${escapeHtml(getQuestionDisplayNumber(question, index))}</button>`;
+  }).join("");
+
+  $$('[data-question-jump]').forEach(button => {
+    button.addEventListener("click", () => jumpToQuestion(Number(button.dataset.questionJump)));
+  });
 }
 
 function getQuestionKey(question) {
@@ -304,6 +417,10 @@ function getQuestionsForMode(mode, options = {}) {
     return options.allowRepeat ? getRandomQuestionsWithRepeat() : getRandomQuestionsWithoutRepeat();
   }
 
+  if (mode === "saved") {
+    return getSavedQuestionsFromBank().map(q => normalizeQuizQuestion(q, true));
+  }
+
   return [];
 }
 
@@ -316,6 +433,7 @@ function setMode(mode) {
 
   $$('[data-mode-card]').forEach(card => card.classList.toggle("selected", card.dataset.modeCard === mode));
   updateWrongSidebarButton();
+  updateSavedSidebarButton();
 
   if (mode === "bank") {
     showBank();
@@ -324,6 +442,7 @@ function setMode(mode) {
 
 function showHome() {
   stopTimer();
+  hideQuestionNavigator();
   setSidebarActive("home");
   $("#homePanel").classList.remove("hidden");
   $("#quizPanel").classList.add("hidden");
@@ -331,10 +450,12 @@ function showHome() {
   $("#bankPanel").classList.add("hidden");
   $("#statsPanel").classList.remove("hidden");
   updateStats();
+  updateSavedSidebarButton();
 }
 
 function showQuiz() {
-  setSidebarActive(null);
+  setSidebarActive(state.mode === "saved" ? "saved" : null);
+  renderQuestionNavigator();
   $("#homePanel").classList.add("hidden");
   $("#bankPanel").classList.add("hidden");
   $("#resultPanel").classList.add("hidden");
@@ -344,6 +465,7 @@ function showQuiz() {
 
 function showBank() {
   stopTimer();
+  hideQuestionNavigator();
   setSidebarActive(null);
   $("#homePanel").classList.add("hidden");
   $("#quizPanel").classList.add("hidden");
@@ -426,6 +548,9 @@ function renderQuiz() {
             <div class="question-number">Câu ${index + 1} <span class="question-code">${escapeHtml(question.code || `ID ${question.id}`)}</span></div>
             <p class="question-text">${escapeHtml(question.question)}</p>
           </div>
+          <button class="save-question-btn" type="button" data-save-question="${escapeHtml(question.id)}" aria-pressed="false">
+            <span>☆</span> Lưu câu
+          </button>
         </div>
         <div class="option-list">${optionsHtml}</div>
       </article>`;
@@ -436,6 +561,11 @@ function renderQuiz() {
   $$("#quizForm input[type='radio']").forEach(input => {
     input.addEventListener("change", handleAnswerChange);
   });
+  $$("#quizForm [data-save-question]").forEach(button => {
+    button.addEventListener("click", () => toggleSavedQuestion(button.dataset.saveQuestion));
+  });
+  updateSavedButtons();
+  renderQuestionNavigator();
 }
 
 function handleAnswerChange(event) {
@@ -445,6 +575,7 @@ function handleAnswerChange(event) {
     state.questions[index].userAnswer = event.target.value;
   }
   updateStats();
+  renderQuestionNavigator();
 }
 
 function updateStats() {
@@ -506,6 +637,8 @@ function submitQuiz() {
   $("#scoreSubtitle").textContent = `Điểm: ${percent}/100 • Thời gian: ${formatTime(state.elapsedSeconds)} • ${getResultMessage(percent)}`;
   renderReview();
   updateWrongSidebarButton();
+  updateSavedSidebarButton();
+  renderQuestionNavigator();
 
   $("#quizPanel").classList.add("hidden");
   $("#resultPanel").classList.remove("hidden");
@@ -534,13 +667,22 @@ function renderReview() {
     const originalNumber = question.id || index + 1;
     return `
       <article class="review-card ${isCorrect ? "good" : "bad"}" id="review-question-${index}" data-review-status="${isCorrect ? "good" : "bad"}">
-        <span class="review-status ${isCorrect ? "good" : "bad"}">${isCorrect ? "Đúng" : "Sai / Chưa chọn"}</span>
+        <div class="review-topline">
+          <span class="review-status ${isCorrect ? "good" : "bad"}">${isCorrect ? "Đúng" : "Sai / Chưa chọn"}</span>
+          <button class="save-question-btn compact" type="button" data-save-question="${escapeHtml(question.id)}" aria-pressed="false">
+            <span>☆</span> Lưu câu
+          </button>
+        </div>
         <h4>Câu ${originalNumber}. ${escapeHtml(question.question)}</h4>
         <p><strong>Bạn chọn:</strong> ${escapeHtml(getDisplayedAnswerText(question, question.userAnswer))}</p>
         <p><strong>Đáp án đúng:</strong> ${escapeHtml(getDisplayedAnswerText(question, question.answer))}</p>
       </article>`;
   }).join("");
   $("#reviewList").innerHTML = html;
+  $$("#reviewList [data-save-question]").forEach(button => {
+    button.addEventListener("click", () => toggleSavedQuestion(button.dataset.saveQuestion));
+  });
+  updateSavedButtons();
 }
 
 function retryQuiz() {
@@ -609,6 +751,7 @@ async function exitToHome() {
   if (!ok) return;
 
   stopTimer();
+  hideQuestionNavigator();
   state.questions = [];
   state.submitted = false;
   state.elapsedSeconds = 0;
@@ -619,6 +762,18 @@ async function exitToHome() {
   setMode("fixed");
   showHome();
   window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function startSavedQuestions() {
+  const savedQuestions = getSavedQuestionsFromBank();
+  if (!savedQuestions.length) {
+    alert("Bạn chưa lưu câu hỏi nào. Bấm nút 'Lưu câu' ở câu muốn ôn lại trước nha.");
+    updateSavedSidebarButton();
+    return;
+  }
+
+  setSidebarActive("saved");
+  startQuiz("saved");
 }
 
 function renderBank() {
@@ -636,13 +791,22 @@ function renderBank() {
 
   $("#bankList").innerHTML = bank.map(question => `
     <article class="bank-item">
-      <h4>Câu ${question.id}. ${escapeHtml(question.question)}</h4>
+      <div class="bank-topline">
+        <h4>Câu ${question.id}. ${escapeHtml(question.question)}</h4>
+        <button class="save-question-btn compact" type="button" data-save-question="${escapeHtml(question.id)}" aria-pressed="false">
+          <span>☆</span> Lưu câu
+        </button>
+      </div>
       <ul>
         ${(question.options || []).map(opt => `<li><strong>${escapeHtml(opt.id)}.</strong> ${escapeHtml(opt.text)}</li>`).join("")}
       </ul>
       <span class="bank-answer">Đáp án: ${escapeHtml(question.answer)}</span>
     </article>
   `).join("") || `<div class="bank-item"><h4>Không tìm thấy câu hỏi phù hợp.</h4></div>`;
+  $$("#bankList [data-save-question]").forEach(button => {
+    button.addEventListener("click", () => toggleSavedQuestion(button.dataset.saveQuestion));
+  });
+  updateSavedButtons();
 }
 
 function bindEvents() {
@@ -663,6 +827,9 @@ function bindEvents() {
 
   const wrongSidebarBtn = $("#wrongSidebarBtn");
   if (wrongSidebarBtn) wrongSidebarBtn.addEventListener("click", showWrongQuestions);
+
+  const savedSidebarBtn = $("#savedSidebarBtn");
+  if (savedSidebarBtn) savedSidebarBtn.addEventListener("click", startSavedQuestions);
 
   $$('[data-mode-card]').forEach(card => {
     card.addEventListener("click", (event) => {
@@ -716,6 +883,7 @@ function init() {
   bindEvents();
   updateStats();
   updateWrongSidebarButton();
+  updateSavedSidebarButton();
   setMode("fixed");
   setSidebarActive("home");
 }
