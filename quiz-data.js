@@ -6242,5 +6242,2453 @@ window.QUIZ_BANK = [
       }
     ],
     "answer": "A"
+  },
+  {
+    "id": 261,
+    "code": "C3-THI-251",
+    "question": "Đại hội lần thứ mấy của Đảng quyết định đổi tên Đảng Lao động Việt Nam thành Đảng Cộng sản Việt Nam?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Đại hội IV của Đảng (1976)."
+      },
+      {
+        "id": "B",
+        "text": "Đại hội III của Đảng (1960)."
+      },
+      {
+        "id": "C",
+        "text": "Đại hội VI của Đảng (1986)."
+      },
+      {
+        "id": "D",
+        "text": "Đại hội VII của Đảng (1991)."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 262,
+    "code": "C3-TLHDHT",
+    "question": "Đại hội nào của Đảng Cộng sản Việt Nam đánh dấu thời kỳ đẩy mạnh công nghiệp hóa, hiện đại hóa đất nước?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Đại hội VIII của Đảng (1996)."
+      },
+      {
+        "id": "B",
+        "text": "Đại hội IX của Đảng (2001)."
+      },
+      {
+        "id": "C",
+        "text": "Đại hội VII của Đảng (1991)."
+      },
+      {
+        "id": "D",
+        "text": "Đại hội VI của Đảng (1986)."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 263,
+    "code": "C3-THI-251",
+    "question": "Đại hội nào của Đảng đã khởi xướng đường lối đổi mới toàn diện ở Việt Nam?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Đại hội VI (1986)."
+      },
+      {
+        "id": "B",
+        "text": "Đại hội VII (1991)."
+      },
+      {
+        "id": "C",
+        "text": "Đại hội VIII (1996)."
+      },
+      {
+        "id": "D",
+        "text": "Đại hội V (1982)."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 264,
+    "code": "C3-THI-243",
+    "question": "Đại hội nào của Đảng đưa ra quan điểm: Xây dựng hệ giá trị quốc gia, hệ giá trị văn hóa và chuẩn mực con người gắn với giữ gìn, phát triển hệ giá trị gia đình Việt Nam trong thời kỳ mới?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Đại hội XIII của Đảng (2021)."
+      },
+      {
+        "id": "B",
+        "text": "Đại hội XII của Đảng (2016)."
+      },
+      {
+        "id": "C",
+        "text": "Đại hội VII của Đảng (1991)."
+      },
+      {
+        "id": "D",
+        "text": "Đại hội VI của Đảng (1986)."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 265,
+    "code": "C3-THI-251",
+    "question": "Đại hội nào của Đảng lần đầu tiên đề ra hai nhiệm vụ chiến lược của cách mạng Việt Nam là xây dựng thành công chủ nghĩa xã hội và bảo vệ vững chắc Tổ quốc Việt Nam xã hội chủ nghĩa?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Đại hội V của Đảng (1982)."
+      },
+      {
+        "id": "B",
+        "text": "Đại hội VI của Đảng (1986)."
+      },
+      {
+        "id": "C",
+        "text": "Đại hội VII của Đảng (1991)."
+      },
+      {
+        "id": "D",
+        "text": "Đại hội X của Đảng (2006)."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 266,
+    "code": "C3-TLHDHT",
+    "question": "Đại hội nào của Đảng lần đầu tiên xác định thời kì quá độ lên chủ nghĩa xã hội ở nước ta là phải trải qua nhiều chặng đường?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Đại hội V của Đảng (1982)."
+      },
+      {
+        "id": "B",
+        "text": "Đại hội VI của Đảng (1986)."
+      },
+      {
+        "id": "C",
+        "text": "Đại hội VII của Đảng (1991)."
+      },
+      {
+        "id": "D",
+        "text": "Đại hội VIII của Đảng (1996)."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 267,
+    "code": "C3-THI-243",
+    "question": "Đại hội III của Đảng (1960) xác định mục tiêu đưa miền Bắc tiến lên nền kinh tế xã hội chủ nghĩa dựa trên:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Sở hữu toàn dân và sở hữu tập thể."
+      },
+      {
+        "id": "B",
+        "text": "Sở hữu cá thể về tư liệu sản xuất."
+      },
+      {
+        "id": "C",
+        "text": "Sở hữu hộ gia đình."
+      },
+      {
+        "id": "D",
+        "text": "Đa dạng về hình thức sở hữu."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 268,
+    "code": "C3-THI-251",
+    "question": "Đại hội IV của Đảng (1976) chỉ ra đặc điểm lớn nhất của cách mạng Việt Nam trong giai đoạn mới là:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Từ một nền kinh tế sản xuất nhỏ là chủ yếu tiến thẳng lên chủ nghĩa xã hội, bỏ qua giai đoạn phát triển tư bản chủ nghĩa."
+      },
+      {
+        "id": "B",
+        "text": "Cả nước tiến lên chủ nghĩa xã hội, khắc phục hậu quả chiến tranh, ổn định tình hình kinh tế - xã hội và đời sống của nhân dân."
+      },
+      {
+        "id": "C",
+        "text": "Cách mạng xã hội chủ nghĩa tiến hành trong bối cảnh quốc tế thuận lợi, miền Nam được hoàn toàn giải phóng."
+      },
+      {
+        "id": "D",
+        "text": "Miền Bắc được hoàn toàn giải phóng và tiến hành xây dựng chủ nghĩa xã hội."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 269,
+    "code": "C3-THI-243",
+    "question": "Đại hội IV của Đảng (1976) đã khẳng định đặc điểm lớn của cách mạng Việt Nam quy định nội dung, hình thức, bước đi của cách mạng xã hội chủ nghĩa ở nước ta là:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Cả ba phương án kia đều đúng."
+      },
+      {
+        "id": "B",
+        "text": "Nước ta đang ở trong quá trình từ một xã hội mà nền kinh tế còn phổ biến là sản xuất nhỏ tiến thẳng lên chủ nghĩa xã hội, bỏ qua giai đoạn phát triển tư bản chủ nghĩa."
+      },
+      {
+        "id": "C",
+        "text": "Tổ quốc ta đã hòa bình, độc lập, thống nhất, cả nước tiến lên chủ nghĩa xã hội với nhiều thuận lợi rất lớn, song cũng còn nhiều khó khăn."
+      },
+      {
+        "id": "D",
+        "text": "Cách mạng xã hội chủ nghĩa ở nước ta tiến hành trong hoàn cảnh quốc tế thuận lợi, song cuộc đấu tranh \"ai thắng ai\" giữa thế lực cách mạng và thế lực phản cách mạng trên thế giới còn gay go, quyết liệt."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 270,
+    "code": "C3-THI-243",
+    "question": "Đại hội IV của Đảng (1976) đã xác định đường lối chung của cách mạng xã hội chủ nghĩa gồm các đặc trưng là:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Xây dựng chế độ làm chủ tập thể xã hội chủ nghĩa, nền sản xuất lớn, nền văn hóa mới, con người mới xã hội chủ nghĩa."
+      },
+      {
+        "id": "B",
+        "text": "Xây dựng chế độ làm chủ tập thể xã hội chủ nghĩa, nền kinh tế tư nhân, nền văn hóa mới, con người mới xã hội chủ nghĩa."
+      },
+      {
+        "id": "C",
+        "text": "Xây dựng chế độ làm chủ tập thể xã hội chủ nghĩa, nền kinh tế tri thức, nền văn hóa mới, con người mới xã hội chủ nghĩa."
+      },
+      {
+        "id": "D",
+        "text": "Xây dựng chế độ làm chủ tập thể xã hội chủ nghĩa, nền văn hóa mới, con người mới xã hội chủ nghĩa."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 271,
+    "code": "C3-THI-251",
+    "question": "Đại hội IV của Đảng (1976) đã xác định cuộc cách mạng khoa học – kỹ thuật giữ vai trò như thế nào trong ba cuộc cách mạng (cách mạng về quan hệ sản xuất, cách mạng khoa học - kỹ thuật, cách mạng tư tưởng và văn hóa)?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Then chốt."
+      },
+      {
+        "id": "B",
+        "text": "Trọng tâm."
+      },
+      {
+        "id": "C",
+        "text": "Chủ yếu."
+      },
+      {
+        "id": "D",
+        "text": "Bổ trợ."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 272,
+    "code": "C3-THI-243",
+    "question": "Đại hội IV của Đảng (1976) xác định điều kiện tiên quyết để đưa cả nước quá độ lên chủ nghĩa xã hội là gì?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Việt Nam hoàn thành thống nhất đất nước về mặt nhà nước."
+      },
+      {
+        "id": "B",
+        "text": "Khắc phục hậu quả chiến tranh, ổn định tình hình kinh tế - xã hội và đời sống của nhân dân."
+      },
+      {
+        "id": "C",
+        "text": "Bước đầu xây dựng được cơ sở vật chất - kỹ thuật ban đầu của chủ nghĩa xã hội."
+      },
+      {
+        "id": "D",
+        "text": "Miền Nam được hoàn toàn giải phóng."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 273,
+    "code": "C3-TLHDHT",
+    "question": "Đại hội V của Đảng (1982) đã xác định đâu là mặt trận hàng đầu trong thực hiện công nghiệp hóa xã hội chủ nghĩa?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Nông nghiệp."
+      },
+      {
+        "id": "B",
+        "text": "Công nghiệp nặng."
+      },
+      {
+        "id": "C",
+        "text": "Công nghiệp nhẹ."
+      },
+      {
+        "id": "D",
+        "text": "Hàng tiêu dùng, thủ công nghiệp."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 274,
+    "code": "C3-THI-243",
+    "question": "Đại hội V của Đảng (1982) xác định nhiệm vụ chiến lược nào được đặt lên hàng đầu?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Nhiệm vụ xây dựng chủ nghĩa xã hội."
+      },
+      {
+        "id": "B",
+        "text": "Nhiệm vụ xây dựng nền văn hóa mới xã hội chủ nghĩa."
+      },
+      {
+        "id": "C",
+        "text": "Nhiệm vụ xây dựng chính quyền của dân, do dân, vì dân."
+      },
+      {
+        "id": "D",
+        "text": "Nhiệm vụ củng cố quốc phòng, bảo vệ Tổ quốc."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 275,
+    "code": "C3-THI-243",
+    "question": "Đại hội VI của Đảng (1986) đã chỉ ra nguyên nhân chủ yếu cho những sai lầm, khuyết điểm của Đảng trong thời kỳ 1975-1986 là:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Nguyên nhân của mọi nguyên nhân bắt nguồn từ những khuyết điểm trong hoạt động tư tưởng, tổ chức và công tác cán bộ của Đảng."
+      },
+      {
+        "id": "B",
+        "text": "Nguyên nhân của mọi nguyên nhân bắt nguồn từ những khuyết điểm trong quá trình xây dựng mô hình chủ nghĩa xã hội của Đảng."
+      },
+      {
+        "id": "C",
+        "text": "Nguyên nhân của mọi nguyên nhân bắt nguồn từ những khuyết điểm trong hoạt động thanh tra của Đảng."
+      },
+      {
+        "id": "D",
+        "text": "Nguyên nhân của mọi nguyên nhân bắt nguồn từ những khuyết điểm trong hoạt động đối ngoại của Đảng."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 276,
+    "code": "C3-THI-243",
+    "question": "Đại hội VI của Đảng (1986) đã khởi xướng đường lối đổi mới toàn diện đất nước, song vẫn có hạn chế, đó là:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Chưa tìm ra những giải pháp hiệu quả tháo gỡ tình trạng rối ren trong phân phối lưu thông."
+      },
+      {
+        "id": "B",
+        "text": "Chưa tìm ra những giải pháp hiệu quả tháo gỡ tình trạng rối ren trong hoạt động của kinh tế tư nhân."
+      },
+      {
+        "id": "C",
+        "text": "Chưa tìm ra những giải pháp hiệu quả tháo gỡ tình trạng rối ren trong giá – lương – tiền."
+      },
+      {
+        "id": "D",
+        "text": "Chưa tìm ra những giải pháp hiệu quả để phát triển hợp tác quốc tế."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 277,
+    "code": "C3-THI-251",
+    "question": "Đại hội VI của Đảng (1986) đánh dấu bước ngoặt về đổi mới tư duy của Đảng, trước hết là tư duy về lĩnh vực gì?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Kinh tế."
+      },
+      {
+        "id": "B",
+        "text": "Chính trị."
+      },
+      {
+        "id": "C",
+        "text": "Văn hóa."
+      },
+      {
+        "id": "D",
+        "text": "Đối ngoại."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 278,
+    "code": "C3-THI-243",
+    "question": "Đại hội VI của Đảng (1986) nhấn mạnh tư tưởng chỉ đạo của kế hoạch và các chính sách kinh tế là gì?",
+    "options": [
+      {
+        "id": "A",
+        "text": "\"Giải phóng mọi năng lực sản xuất hiện có, khai thác mọi khả năng tiềm tàng của đất nước, sử dụng có hiệu quả sự giúp đỡ của quốc tế\"."
+      },
+      {
+        "id": "B",
+        "text": "\"Giải phóng mọi năng lực sản xuất hiện có, khai thác mọi khả năng tiềm tàng của thế mạnh kinh tế nông nghiệp, tận dụng có hiệu quả sự giúp đỡ của quốc tế\"."
+      },
+      {
+        "id": "C",
+        "text": "\"Khai thác mọi năng lực sản xuất hiện có, sử dụng mọi khả năng tiềm tàng của đất nước, tận dụng có hiệu quả sự giúp đỡ của quốc tế\"."
+      },
+      {
+        "id": "D",
+        "text": "\"Khai thác mọi năng lực sản xuất hiện có, phát huy mọi khả năng tiềm tàng của đất nước, sử dụng có hiệu quả sự giúp đỡ của quốc tế\"."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 279,
+    "code": "C3-THI-251",
+    "question": "Đại hội VII (1991) và Đại hội VIII (1996) của Đảng Cộng sản Việt Nam khẳng định lĩnh vực nào có vai trò then chốt, động lực, là quốc sách hàng đầu trong sự nghiệp xây dựng chủ nghĩa xã hội?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Giáo dục - đào tạo, khoa học - công nghệ."
+      },
+      {
+        "id": "B",
+        "text": "Giáo dục - đào tạo."
+      },
+      {
+        "id": "C",
+        "text": "Khoa học - công nghệ."
+      },
+      {
+        "id": "D",
+        "text": "An ninh, chính trị."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 280,
+    "code": "C3-THI-243",
+    "question": "Đại hội VIII của Đảng (1996) đã bổ sung đặc trưng tổng quát về mục tiêu xây dựng chủ nghĩa xã hội ở Việt Nam là:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Dân giàu, nước mạnh, xã hội công bằng, văn minh."
+      },
+      {
+        "id": "B",
+        "text": "Dân giàu, nước mạnh, dân chủ, công bằng, văn minh."
+      },
+      {
+        "id": "C",
+        "text": "Dân giàu, nước mạnh, tiên tiến hiện đại."
+      },
+      {
+        "id": "D",
+        "text": "Dân giàu, nước mạnh giữ vững ổn định chính trị."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 281,
+    "code": "C3-THI-243",
+    "question": "Đại hội X của Đảng (2006) đưa ra quan điểm đẩy mạnh công nghiệp hóa, hiện đại hóa cần phải:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Gắn với phát triển kinh tế tri thức."
+      },
+      {
+        "id": "B",
+        "text": "Gắn với phát triển kinh tế hàng hóa."
+      },
+      {
+        "id": "C",
+        "text": "Gắn với nền kinh tế thị trường."
+      },
+      {
+        "id": "D",
+        "text": "Gắn với nền kinh tế khép kín."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 282,
+    "code": "C3-THI-251",
+    "question": "Đại hội XI của Đảng (2011) xác định trọng tâm của việc hoàn thiện thể chế kinh tế thị trường định hướng xã hội chủ nghĩa là gì?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Môi trường cạnh tranh bình đẳng và cải cách hành chính."
+      },
+      {
+        "id": "B",
+        "text": "Hoàn thiện cơ chế chính sách phát triển công nghiệp ở địa phương."
+      },
+      {
+        "id": "C",
+        "text": "Đẩy mạnh phát triển kinh tế tư nhân."
+      },
+      {
+        "id": "D",
+        "text": "Thu hút nhà đầu tư nước ngoài."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 283,
+    "code": "C3-THI-243",
+    "question": "Đại hội XI của Đảng (2011) xác định yếu tố nào quyết định việc đẩy mạnh phát triển và ứng dụng khoa học, công nghệ, cơ cấu lại nền kinh tế, chuyển đổi mô hình tăng trưởng?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Nguồn nhân lực chất lượng cao."
+      },
+      {
+        "id": "B",
+        "text": "Khoa học và công nghệ."
+      },
+      {
+        "id": "C",
+        "text": "Chính sách của Nhà nước."
+      },
+      {
+        "id": "D",
+        "text": "Nguồn vốn."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 284,
+    "code": "C3-THI-243",
+    "question": "Đại hội XII của Đảng (2016) chủ trương đẩy mạnh cơ cấu lại doanh nghiệp nhà nước theo hướng:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Đẩy mạnh cổ phần hóa, bán vốn tại những doanh nghiệp Nhà nước không cần nắm hoặc không cần giữ cổ phần chi phối."
+      },
+      {
+        "id": "B",
+        "text": "Đẩy mạnh cổ phần hóa ở tất cả các doanh nghiệp Nhà nước."
+      },
+      {
+        "id": "C",
+        "text": "Tiếp tục duy trì chức năng đại diện chủ sở hữu nhà nước của các bộ, ủy ban nhân dân đối với vốn, tài sản nhà nước tại các doanh nghiệp."
+      },
+      {
+        "id": "D",
+        "text": "Đồng bộ nhiệm vụ sản xuất kinh doanh với nhiệm vụ chính trị."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 285,
+    "code": "C3-THI-251",
+    "question": "Đại hội XII của Đảng (2016) đã đánh giá thành tựu qua 30 năm đổi mới như thế nào?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Đạt được những thành tựu to lớn, có ý nghĩa lịch sử."
+      },
+      {
+        "id": "B",
+        "text": "Đạt được những thành tựu lịch sử, có ý nghĩa to lớn."
+      },
+      {
+        "id": "C",
+        "text": "Đạt được nhiều thành tựu lớn, có ý nghĩa quan trọng."
+      },
+      {
+        "id": "D",
+        "text": "Đạt được một số thành tựu to lớn, có ý nghĩa lịch sử."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 286,
+    "code": "C3-THI-243",
+    "question": "Đại hội XIII của Đảng (01/2021) đã có sự bổ sung và nhấn mạnh quan điểm về công tác đối ngoại, đó là:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Xây dựng nền ngoại giao kinh tế phục vụ phát triển, lấy người dân, địa phương và doanh nghiệp làm trung tâm phục vụ."
+      },
+      {
+        "id": "B",
+        "text": "Thực hiện nhất quán đường lối đối ngoại độc lập tự chủ, hòa bình."
+      },
+      {
+        "id": "C",
+        "text": "Đẩy mạnh quá trình hội nhập kinh tế khu vực và thế giới."
+      },
+      {
+        "id": "D",
+        "text": "Chủ động và tích cực hội nhập kinh tế quốc tế."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 287,
+    "code": "C3-THI-251",
+    "question": "Đảng Cộng sản Việt Nam xác định công nghiệp hóa, hiện đại hóa đất nước phải bảo đảm nguyên tắc nào?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Xây dựng nền kinh tế độc lập, tự chủ."
+      },
+      {
+        "id": "B",
+        "text": "Xây dựng nền kinh tế khép kín và hướng nội."
+      },
+      {
+        "id": "C",
+        "text": "Xây dựng nền kinh tế phải dựa vào sự giúp đỡ của các nước tư bản."
+      },
+      {
+        "id": "D",
+        "text": "Xây dựng nền kinh tế mở nhưng chỉ giao lưu hợp tác với các nước XHCN."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 288,
+    "code": "C3-THI-251",
+    "question": "Đảng Cộng sản Việt Nam xác định lực lượng tiến hành công nghiệp hóa trong thời kỳ đổi mới gồm những thành tố nào dưới đây?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Toàn dân và các thành phần kinh tế."
+      },
+      {
+        "id": "B",
+        "text": "Nhà nước và các doanh nghiệp Nhà nước."
+      },
+      {
+        "id": "C",
+        "text": "Nhà đầu tư nước ngoài."
+      },
+      {
+        "id": "D",
+        "text": "Hộ gia đình."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 289,
+    "code": "C3-TLHDHT",
+    "question": "Đảng ta đánh giá: Một nguyên nhân quan trọng khiến cho sản xuất trong giai đoạn 1981-1986 dẫm chân tại chỗ, tình hình kinh tế - xã hội ngày càng không ổn định, đó là:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Đảng đã chủ quan, nóng vội đề ra một số chủ trương quá lớn về quy mô, quá cao về nhịp độ xây dựng cơ bản và phát triển sản xuất."
+      },
+      {
+        "id": "B",
+        "text": "Đảng đã chủ quan, nóng vội đề ra mục tiêu kinh tế quá lớn, trong khi điều kiện thực tế lại quá thấp kém."
+      },
+      {
+        "id": "C",
+        "text": "Đảng đã chậm trễ trong đổi mới chính trị và chưa bắt nhịp được với sự thay đổi nhanh chóng của tình hình thế giới."
+      },
+      {
+        "id": "D",
+        "text": "Đảng đã chậm trễ trong cải tạo, đầu tư về nông nghiệp và vội vàng tiến hành xây dựng cơ bản."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 290,
+    "code": "C3-THI-243",
+    "question": "Đáp án nào dưới đây không thuộc nội dung của Hội nghị Trung ương 7 khóa VII của Đảng (7/1994) về \"Phát triển công nghiệp, công nghệ đến năm 2000 theo hướng công nghiệp hóa, hiện đại hóa đất nước và xây dựng giai cấp công nhân trong giai đoạn mới\"?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Nội dung trọng yếu là công nghiệp hóa nông nghiệp."
+      },
+      {
+        "id": "B",
+        "text": "Công nghiệp hóa là sự nghiệp của toàn dân."
+      },
+      {
+        "id": "C",
+        "text": "Khoa học và công nghệ là quốc sách hàng đầu, là nhân tố quyết định tăng trưởng kinh tế và phát triển xã hội."
+      },
+      {
+        "id": "D",
+        "text": "Công nghiệp hóa nông nghiệp, trên nền tảng khoa học – công nghệ hiện đại, kết hợp công nghệ truyền thống với công nghệ hiện đại."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 291,
+    "code": "C3-THI-243",
+    "question": "Đáp án nào sau đây không phải là chủ trương của Đảng Cộng sản Việt Nam về vấn đề hội nhập kinh tế quốc tế hiện nay?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Coi hội nhập kinh tế quốc tế là yếu tố quyết định cho sự phát triển kinh tế đất nước."
+      },
+      {
+        "id": "B",
+        "text": "Thực thi có hiệu quả các hiệp định thương mại tự do đã ký kết."
+      },
+      {
+        "id": "C",
+        "text": "Đa phương hóa, đa dạng hóa quan hệ kinh tế quốc tế."
+      },
+      {
+        "id": "D",
+        "text": "Chủ động, tích cực hội nhập kinh tế quốc tế."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 292,
+    "code": "C3-THI-243",
+    "question": "Đặc trưng quan trọng nhất của kinh tế ở nước ta thời kỳ trước đổi mới là gì?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Kế hoạch hóa."
+      },
+      {
+        "id": "B",
+        "text": "Nông nghiệp lạc hậu."
+      },
+      {
+        "id": "C",
+        "text": "Phát triển công nghiệp nặng."
+      },
+      {
+        "id": "D",
+        "text": "Dựa vào viện trợ nước ngoài."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 293,
+    "code": "C3-THI-243",
+    "question": "Điểm chung trong chủ trương của Đảng về con đường xây dựng chủ nghĩa xã hội thông qua tại các kỳ Đại hội IX, X, XI, XII của Đảng là:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Sử dụng kinh tế thị trường làm phương tiện để xây dựng chủ nghĩa xã hội."
+      },
+      {
+        "id": "B",
+        "text": "Công nghiệp hóa, hiện đại hóa đất nước, tích cực tham gia hội nhập quốc tế."
+      },
+      {
+        "id": "C",
+        "text": "Sản xuất hàng hóa song hành cùng với chủ nghĩa xã hội."
+      },
+      {
+        "id": "D",
+        "text": "Công nghiệp hóa, hiện đại hóa phải gắn với phát triển kinh tế tri thức."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 294,
+    "code": "C3-THI-251",
+    "question": "Điểm giống nhau cơ bản giữa đường lối kinh tế của Đại hội IV của Đảng (1976) và Đại hội V của Đảng (1982) của Đảng là:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Đều coi công nghiệp hóa xã hội chủ nghĩa là nhiệm vụ trung tâm của cả thời kỳ quá độ lên chủ nghĩa xã hội."
+      },
+      {
+        "id": "B",
+        "text": "Đều khẳng định cần hoàn thiện cơ chế kinh tế thị trường để phát triển sản xuất."
+      },
+      {
+        "id": "C",
+        "text": "Đều ưu tiên phát triển nông nghiệp trước công nghiệp."
+      },
+      {
+        "id": "D",
+        "text": "Đều ưu tiên phát triển công nghiệp nặng."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 295,
+    "code": "C3-THI-251",
+    "question": "Điểm nổi bật nhất trong chủ trương của Đảng về kinh tế ở Việt Nam thời kỳ trước đổi mới là:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Kế hoạch hóa, tập trung, bao cấp."
+      },
+      {
+        "id": "B",
+        "text": "Kinh tế hàng hóa, nhiều thành phần."
+      },
+      {
+        "id": "C",
+        "text": "Kinh tế thị trường định hướng XHCN."
+      },
+      {
+        "id": "D",
+        "text": "Tự cung, tự cấp."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 296,
+    "code": "C3-THI-243",
+    "question": "Đóng góp quan trọng của các chủ trương tại Hội nghị Trung ương 8 khóa V của Đảng (6/1985) là gì?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Đã thừa nhận sản xuất hàng hóa và những quy luật sản xuất hàng hóa trong nền kinh tế quốc dân."
+      },
+      {
+        "id": "B",
+        "text": "Đã thừa nhận kinh tế thị trường và những quy luật sản xuất hàng hóa trong nền kinh tế quốc dân."
+      },
+      {
+        "id": "C",
+        "text": "Đã thừa nhận kinh tế thị trường và những quy luật kinh tế thị trường trong nền kinh tế quốc dân."
+      },
+      {
+        "id": "D",
+        "text": "Đã thừa nhận cơ chế quản lý kinh tế thị trường và những quy luật sản xuất hàng hóa trong nền kinh tế quốc dân."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 297,
+    "code": "C3-THI-251",
+    "question": "Hạn chế lớn trong đường lối xây dựng kinh tế do Đại hội IV của Đảng (1976) đề ra là gì?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Ưu tiên công nghiệp nặng với quy mô lớn, chỉ tiêu nông nghiệp, công nghiệp vượt quá khả năng thực tế."
+      },
+      {
+        "id": "B",
+        "text": "Đặt ra yêu cầu phát triển công nghiệp quốc phòng chưa gắn với thực trạng nền kinh tế lúc bấy giờ."
+      },
+      {
+        "id": "C",
+        "text": "Xác định trọng tâm kinh tế đối ngoại ở mức độ cao hơn so với khả năng nguồn lực trong nước."
+      },
+      {
+        "id": "D",
+        "text": "Đề ra mục tiêu phát triển khoa học – kỹ thuật chưa phù hợp với điều kiện thực tiễn."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 298,
+    "code": "C3-THI-251",
+    "question": "Hãy chọn đáp án đầy đủ và toàn diện nhất: Tại Hội nghị Trung ương lần thứ 4, khóa X (1/2007), lần đầu tiên Đảng Cộng sản Việt Nam ban hành Chiến lược biển Việt Nam đến năm 2020. Chiến lược này có ý nghĩa gì?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Thể hiện tầm nhìn chiến lược của Đảng trong việc đưa Việt Nam trở thành quốc gia mạnh về biển, giàu lên từ biển."
+      },
+      {
+        "id": "B",
+        "text": "Thể hiện sự nhận thức mới của Đảng về phát triển kinh tế biển trong giai đoạn đẩy mạnh công nghiệp hóa, hiện đại hóa đất nước."
+      },
+      {
+        "id": "C",
+        "text": "Thể hiện nhận thức sâu sắc và sự nhất quán trong quan điểm chỉ đạo của Đảng về vị trí, vai trò đặc biệt của biển, đảo trong chiến lược xây dựng, phát triển bền vững và bảo vệ Tổ quốc."
+      },
+      {
+        "id": "D",
+        "text": "Thể hiện quyết tâm của Đảng trong việc bảo vệ vững chắc chủ quyền, quyền chủ quyền và toàn vẹn lãnh thổ trên biển của Tổ quốc."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 299,
+    "code": "C3-THI-243",
+    "question": "Hãy chọn đáp án đúng nhất: Vì sao Việt Nam hoàn thành thống nhất về mặt Nhà nước là một trong những thành tựu to lớn, có ý nghĩa quan trọng?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Thể hiện yêu cầu thực tiễn lịch sử, niềm khát vọng, ý chí của đông đảo nhân dân cả nước xây dựng đất nước thống nhất, toàn vẹn lãnh thổ."
+      },
+      {
+        "id": "B",
+        "text": "Thể hiện sự thống nhất các tổ chức chính trị - xã hội, niềm khát vọng, ý chí của đông đảo nhân dân cả nước."
+      },
+      {
+        "id": "C",
+        "text": "Thể hiện sự tất thắng của chủ nghĩa anh hùng, độc lập, tự do."
+      },
+      {
+        "id": "D",
+        "text": "Đó là chiến thắng vẻ vang của toàn Đảng, toàn quân và toàn dân trước kẻ thù và tay sai."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 300,
+    "code": "C3-THI-243",
+    "question": "Hoàn cảnh Việt Nam sau đại thắng mùa Xuân năm 1975 là gì?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Đất nước hoàn toàn độc lập, thống nhất, quá độ đi lên chủ nghĩa xã hội."
+      },
+      {
+        "id": "B",
+        "text": "Đất nước có hòa bình, độc lập; nhân dân hưởng tự do, hạnh phúc."
+      },
+      {
+        "id": "C",
+        "text": "Đất nước hội nhập toàn diện vào phe xã hội chủ nghĩa, đổi mới và phát triển."
+      },
+      {
+        "id": "D",
+        "text": "Đất nước đối mặt với tình thế thù trong giặc ngoài, \"như ngàn cân treo sợi tóc\"."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 301,
+    "code": "C3-THI-251",
+    "question": "Hội nghị Trung ương Đảng lần thứ 8 (6/1985) là bước đột phá quan trọng trong lĩnh vực nào?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Cải cách giá – lương – tiền."
+      },
+      {
+        "id": "B",
+        "text": "Củng cố quốc phòng toàn dân."
+      },
+      {
+        "id": "C",
+        "text": "Mở rộng xuất khẩu lao động."
+      },
+      {
+        "id": "D",
+        "text": "Phát triển hệ thống giáo dục."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 302,
+    "code": "C3-THI-251",
+    "question": "Hội nghị Trung ương lần thứ 5 (khóa XII), tháng 5/2017 đã ban hành một nghị quyết riêng về phát triển kinh tế tư nhân, trong đó nhấn mạnh mục tiêu phát triển của kinh tế tư nhân là:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Kinh tế tư nhân trở thành một động lực quan trọng của nền kinh tế thị trường định hướng xã hội chủ nghĩa."
+      },
+      {
+        "id": "B",
+        "text": "Kinh tế tư nhân trở thành một động lực quan trọng để giải phóng sức sản xuất."
+      },
+      {
+        "id": "C",
+        "text": "Kinh tế tư nhân là nòng cốt để phát triển nền kinh tế độc lập tự chủ."
+      },
+      {
+        "id": "D",
+        "text": "Kinh tế tư nhân là trụ cột quan trọng của công cuộc đổi mới."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 303,
+    "code": "C3-THI-243",
+    "question": "Hội nghị Trung ương 4 khóa VII (01/1993), Đảng đã ban hành 5 Nghị quyết: về tiếp tục đổi mới sự nghiệp giáo dục và đào tạo; về một số nhiệm vụ văn hóa, văn nghệ; về những vấn đề cấp bách của sự nghiệp chăm sóc và bảo vệ sức khỏe nhân dân; về chính sách dân số và kế hoạch hóa gia đình; về công tác thanh niên trong thời kỳ mới. Những Nghị quyết trên thể hiện điều gì?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Quan điểm cách mạng và nhân văn của Đảng: Tất cả là do con người, tất cả vì hạnh phúc con người."
+      },
+      {
+        "id": "B",
+        "text": "Quan điểm phát triển văn hóa, kinh tế của Đảng: Tất cả là do con người, tất cả vì hạnh phúc con người."
+      },
+      {
+        "id": "C",
+        "text": "Quan điểm phát triển văn hóa, kinh tế của Đảng: Tất cả là do giáo dục, tất cả vì tri thức và sức khỏe toàn diện của con người."
+      },
+      {
+        "id": "D",
+        "text": "Quan điểm cách mạng và nhân văn của Đảng: Tất cả là do giáo dục, tất cả vì tri thức."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 304,
+    "code": "C3-THI-251",
+    "question": "Hội nghị Trung ương lần thứ 6 (8/1979) được coi là \"bước đột phá đầu tiên\" về tìm tòi đường lối đổi mới toàn diện của Đảng Cộng sản Việt Nam đã có tư tưởng nổi bật gì?",
+    "options": [
+      {
+        "id": "A",
+        "text": "\"Làm cho sản xuất bung ra\"."
+      },
+      {
+        "id": "B",
+        "text": "\"Làm cho sản xuất phát triển\"."
+      },
+      {
+        "id": "C",
+        "text": "\"Làm cho sản xuất thoát khỏi khó khăn\"."
+      },
+      {
+        "id": "D",
+        "text": "\"Làm cho sản xuất thoát khỏi trì trệ\"."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 305,
+    "code": "C3-THI-243",
+    "question": "Hội nghị Trung ương 6 khóa VI của Đảng (3/1989) xác định mục đích đổi mới tổ chức và phương thức hoạt động của hệ thống chính trị là gì?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Nhằm tăng cường vai trò lãnh đạo của Đảng, hiệu lực quản lý của Nhà nước, phát huy quyền làm chủ của nhân dân."
+      },
+      {
+        "id": "B",
+        "text": "Nhằm thống nhất quyền lực trên cơ sở phân định rõ ràng các quyền lập pháp, hành pháp và tư pháp."
+      },
+      {
+        "id": "C",
+        "text": "Nhằm xây dựng một nhà nước có đủ quyền lực và khả năng định ra luật pháp, quản lý xã hội bằng pháp luật."
+      },
+      {
+        "id": "D",
+        "text": "Nhằm xây dựng nhà nước của nhân dân, do nhân dân, vì nhân dân."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 306,
+    "code": "C3-THI-243",
+    "question": "Hội nghị Trung ương 9 khóa IX (01/2004) đã xác định phát triển văn hóa phải đồng bộ với phát triển lĩnh vực nào?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Phát triển văn hóa phải đồng bộ với phát triển kinh tế."
+      },
+      {
+        "id": "B",
+        "text": "Phát triển văn hóa phải đồng bộ với phát triển chính trị."
+      },
+      {
+        "id": "C",
+        "text": "Phát triển văn hóa phải đồng bộ với phát triển xã hội."
+      },
+      {
+        "id": "D",
+        "text": "Phát triển văn hóa phải giữ gìn bản sắc dân tộc."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 307,
+    "code": "C3-THI-243",
+    "question": "Hội nghị Trung ương 24 khóa III của Đảng (8/1975) đã quyết định nội dung nào dưới đây?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Hoàn thành thống nhất nước nhà, đưa cả nước tiến nhanh, tiến mạnh, tiến vững chắc lên chủ nghĩa xã hội."
+      },
+      {
+        "id": "B",
+        "text": "Đặt tên nước là nước Cộng hòa Xã hội Chủ nghĩa Việt Nam."
+      },
+      {
+        "id": "C",
+        "text": "Thành phố Sài Gòn đổi tên là Thành phố Hồ Chí Minh."
+      },
+      {
+        "id": "D",
+        "text": "Thành lập Ủy ban dự thảo Hiến pháp nước Cộng hòa xã hội chủ nghĩa Việt Nam."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 308,
+    "code": "C3-THI-243",
+    "question": "Hơn 23 triệu cử tri, chiếm 98,77% cử tri đi bầu cử trong cuộc Tổng tuyển cử bầu Quốc hội chung của nước Việt Nam thống nhất ngày 25/4/1976. Thắng lợi này thể hiện điều gì?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Ý chí đoàn kết toàn dân tộc quyết tâm thực hiện Di chúc thiêng liêng của Chủ tịch Hồ Chí Minh."
+      },
+      {
+        "id": "B",
+        "text": "Ý chí đoàn kết toàn dân tộc trong việc quét tàn dư thế lực phản động và nội phản."
+      },
+      {
+        "id": "C",
+        "text": "Ý chí đoàn kết toàn dân tộc trong việc thực hiện Nghị quyết Trung ương 21 của Đảng (7/1973)."
+      },
+      {
+        "id": "D",
+        "text": "Ý chí toàn dân tộc quyết tâm trong việc xây dựng thành công chủ nghĩa xã hội."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 309,
+    "code": "C3-THI-243",
+    "question": "Khái niệm \"Kinh tế thị trường định hướng xã hội chủ nghĩa\" được Đảng Cộng sản Việt Nam sử dụng lần đầu tiên khi nào?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Đại hội IX của Đảng (2001)."
+      },
+      {
+        "id": "B",
+        "text": "Đại hội X của Đảng (2006)."
+      },
+      {
+        "id": "C",
+        "text": "Đại hội XI của Đảng (2011)."
+      },
+      {
+        "id": "D",
+        "text": "Đại hội VII của Đảng (1991)."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 310,
+    "code": "C3-THI-251",
+    "question": "Khi triển khai thực hiện Nghị quyết Đại hội V (1982), Đảng Cộng sản Việt Nam đã có hạn chế là quá tập trung, chú trọng đầu tư vào lĩnh vực (ngành) nào?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Công nghiệp nặng."
+      },
+      {
+        "id": "B",
+        "text": "Công nghiệp nhẹ."
+      },
+      {
+        "id": "C",
+        "text": "Nông nghiệp."
+      },
+      {
+        "id": "D",
+        "text": "Hàng tiêu dùng, thủ công nghiệp."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 311,
+    "code": "C3-TLHDHT",
+    "question": "Lần đầu tiên Đảng ta nêu ra khái niệm \"Tư tưởng Hồ Chí Minh\" là tại:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Đại hội VII của Đảng (1991)."
+      },
+      {
+        "id": "B",
+        "text": "Đại hội VIII của Đảng (1996)."
+      },
+      {
+        "id": "C",
+        "text": "Đại hội IX của Đảng (2001)."
+      },
+      {
+        "id": "D",
+        "text": "Đại hội XI của Đảng (2011)."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 312,
+    "code": "C3-TLHDHT",
+    "question": "Lần đầu tiên Đảng ta sử dụng khái niệm \"hệ thống chính trị\" thay cho khái niệm \"chuyên chính vô sản\" là tại:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Hội nghị Trung ương lần thứ 6 khóa VI (3/1989)."
+      },
+      {
+        "id": "B",
+        "text": "Hội nghị Trung ương lần thứ 6 (lần 2) khóa VIII (2/1999)."
+      },
+      {
+        "id": "C",
+        "text": "Đại hội VI của Đảng (1986)."
+      },
+      {
+        "id": "D",
+        "text": "Đại hội VII của Đảng (1991)."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 313,
+    "code": "C3-THI-251",
+    "question": "Một đặc trưng cơ bản về chủ nghĩa xã hội được xác định tại Đại hội IV của Đảng (1976) là gì?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Chuyên chính vô sản, phát huy quyền làm chủ tập thể của nhân dân lao động là công cụ để xây dựng chủ nghĩa xã hội."
+      },
+      {
+        "id": "B",
+        "text": "Phát triển kinh tế nhiều thành phần, trong đó kinh tế Nhà nước giữ vai trò chủ đạo."
+      },
+      {
+        "id": "C",
+        "text": "Đảng Cộng sản Việt Nam là lực lượng lãnh đạo Nhà nước và xã hội."
+      },
+      {
+        "id": "D",
+        "text": "Nhà nước ta là Nhà nước của dân, do dân, vì dân."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 314,
+    "code": "C3-THI-251",
+    "question": "Một mục tiêu của kế hoạch phát triển kinh tế và văn hóa (1976–1980) được Đại hội IV của Đảng (1976) xác định là gì?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Bảo đảm đời sống nhân dân và tích lũy cho xây dựng chủ nghĩa xã hội."
+      },
+      {
+        "id": "B",
+        "text": "Giữ vững tốc độ tăng trưởng kinh tế cao."
+      },
+      {
+        "id": "C",
+        "text": "Hiện đại hóa nông nghiệp, nông thôn."
+      },
+      {
+        "id": "D",
+        "text": "Đưa công nghiệp nặng phát triển vượt bậc."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 315,
+    "code": "C3-THI-243",
+    "question": "Một trong những đóng góp quan trọng nhất về tư duy công nghiệp hóa tại Đại hội V của Đảng (1982) là gì?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Tập trung sức phát triển mạnh nông nghiệp, coi nông nghiệp là mặt trận hàng đầu."
+      },
+      {
+        "id": "B",
+        "text": "Tập trung sức phát triển mạnh công nghiệp, coi công nghiệp nặng là mặt trận hàng đầu."
+      },
+      {
+        "id": "C",
+        "text": "Tập trung xây dựng ba chương trình kinh tế lớn: lương thực - thực phẩm, hàng tiêu dùng, hàng xuất khẩu."
+      },
+      {
+        "id": "D",
+        "text": "Xây dựng một số ngành thủ công nghiệp quan trọng."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 316,
+    "code": "C3-TLHDHT",
+    "question": "Mục tiêu cơ bản và cấp bách trong kế hoạch 5 năm 1976–1980 về phát triển kinh tế, văn hóa, khoa học, kỹ thuật được Đại hội IV của Đảng (1976) đưa ra là:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Xây dựng cơ sở vật chất - kỹ thuật của chủ nghĩa xã hội và cải thiện một bước đời sống vật chất, văn hóa của nhân dân."
+      },
+      {
+        "id": "B",
+        "text": "Xây dựng cơ sở vật chất - kỹ thuật của chủ nghĩa xã hội và đảm bảo quốc phòng - an ninh, bảo vệ Tổ quốc."
+      },
+      {
+        "id": "C",
+        "text": "Cải thiện một bước đời sống vật chất, văn hóa của nhân dân và mở rộng quan hệ hợp tác với các nước."
+      },
+      {
+        "id": "D",
+        "text": "Chính trị ổn định và phát triển kinh tế bền vững."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 317,
+    "code": "C3-THI-243",
+    "question": "Mục tiêu lâu dài của công nghiệp hóa, hiện đại hóa được Hội nghị Trung ương 7 khóa VII của Đảng (7/1994) đề ra là:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Cải biến nước ta thành một nước công nghiệp có cơ sở vật chất, kỹ thuật hiện đại."
+      },
+      {
+        "id": "B",
+        "text": "Cải biến nước ta thành một nước công nông nghiệp hiện đại, khoa học kỹ thuật tiên tiến."
+      },
+      {
+        "id": "C",
+        "text": "Phát triển giai cấp công nhân về số lượng và trình độ."
+      },
+      {
+        "id": "D",
+        "text": "Xóa bỏ mọi áp bức, bất công trong xã hội."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 318,
+    "code": "C3-TLHDHT",
+    "question": "Mục tiêu tổng quát được Đại hội V của Đảng (1982) đề ra là gì?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Cơ bản ổn định tình hình kinh tế - xã hội, ổn định một bước đời sống nhân dân."
+      },
+      {
+        "id": "B",
+        "text": "Cơ bản ổn định đời sống kinh tế - xã hội và tình hình quốc phòng, an ninh."
+      },
+      {
+        "id": "C",
+        "text": "Ổn định chính trị, phát triển kinh tế, giữ vững an ninh, quốc phòng."
+      },
+      {
+        "id": "D",
+        "text": "Ổn định tình hình trong nước, từng bước mở cửa thế giới."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 319,
+    "code": "C3-THI-251",
+    "question": "Nếu đường lối kinh tế của Đại hội IV của Đảng (1976) được đánh giá là \"chủ quan, nóng vội\", thì đường lối Đại hội V của Đảng (1982) được đánh giá như thế nào?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Thận trọng hơn, chú ý bước đi phù hợp với điều kiện thực tế."
+      },
+      {
+        "id": "B",
+        "text": "Thiên lệch, ưu tiên một số mặt chưa đúng với yêu cầu chung."
+      },
+      {
+        "id": "C",
+        "text": "Cứng nhắc, không điều chỉnh mục tiêu chiến lược."
+      },
+      {
+        "id": "D",
+        "text": "Lúng túng, thiếu sự nhất quán trong điều hành."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 320,
+    "code": "C3-TLHDHT",
+    "question": "Nghị quyết Đại hội VI của Đảng (1986) đã đánh giá những sai lầm, khuyết điểm trong sự lãnh đạo, quản lý của Đảng và Nhà nước khi thực hiện Nghị quyết Đại hội V của Đảng (1982) là ở mức độ nào và trên những mặt nào?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Sai lầm nghiêm trọng về chủ trương, chính sách lớn, về chỉ đạo chiến lược và về tổ chức thực hiện."
+      },
+      {
+        "id": "B",
+        "text": "Sai lầm đặc biệt nghiêm trọng về chủ trương, chính sách lớn, về chỉ đạo chiến lược và về tổ chức thực hiện."
+      },
+      {
+        "id": "C",
+        "text": "Sai lầm rất nghiêm trọng về chủ trương, chính sách lớn, về chỉ đạo chiến lược."
+      },
+      {
+        "id": "D",
+        "text": "Sai lầm nghiêm trọng về tổ chức thực hiện."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 321,
+    "code": "C3-THI-251",
+    "question": "Nghị quyết Trung ương lần thứ 2 (khóa VIII) (24/12/1996) của Đảng đánh giá giáo dục - đào tạo với khoa học - công nghệ có vai trò gì?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Là quốc sách hàng đầu."
+      },
+      {
+        "id": "B",
+        "text": "Là nhiệm vụ hàng đầu."
+      },
+      {
+        "id": "C",
+        "text": "Là nhiệm vụ chiến lược."
+      },
+      {
+        "id": "D",
+        "text": "Là nhiệm vụ quan trọng nhất."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 322,
+    "code": "C3-THI-243",
+    "question": "Nguyên nhân chủ yếu của những sai lầm, khuyết điểm, đặc biệt trong lĩnh vực kinh tế thời kỳ 1975–1986 được Đại hội VI của Đảng (1986) chỉ ra là:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Do bệnh chủ quan duy ý chí, lối suy nghĩ và hành động giản đơn, nóng vội, chạy theo nguyện vọng chủ quan."
+      },
+      {
+        "id": "B",
+        "text": "Do kinh tế Việt Nam chủ yếu là sản xuất nhỏ, phân tán và năng suất lao động thấp."
+      },
+      {
+        "id": "C",
+        "text": "Do hậu quả nặng nề của chiến tranh."
+      },
+      {
+        "id": "D",
+        "text": "Mỹ thực hiện chủ trương cô lập, cấm vận toàn diện Việt Nam."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 323,
+    "code": "C3-THI-251",
+    "question": "Nguyên nhân to lớn khiến kinh tế – xã hội Việt Nam lâm vào khủng hoảng giai đoạn 1982–1986 là gì?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Sai lầm trong xác định mục tiêu, bước đi và cơ cấu kinh tế."
+      },
+      {
+        "id": "B",
+        "text": "Tác động của biến động quốc tế về giá dầu và nguyên liệu."
+      },
+      {
+        "id": "C",
+        "text": "Lạm phát toàn cầu và suy thoái kinh tế khu vực."
+      },
+      {
+        "id": "D",
+        "text": "Thời tiết khắc nghiệt kéo dài và ảnh hưởng từ biến đổi khí hậu."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 324,
+    "code": "C3-THI-243",
+    "question": "Nhận định đầy đủ nhất về hoàn cảnh lịch sử của Việt Nam sau năm 1975 là:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Việt Nam tiến hành công cuộc xây dựng chủ nghĩa xã hội trên phạm vi cả nước, với những khó khăn và thuận lợi đan xen."
+      },
+      {
+        "id": "B",
+        "text": "Nhân dân Việt Nam trở thành người làm chủ đất nước, công cuộc xây dựng chủ nghĩa xã hội trên phạm vi cả nước được tiến hành."
+      },
+      {
+        "id": "C",
+        "text": "Miền Nam được giải phóng hoàn toàn, cả nước bắt đầu công cuộc xây dựng chủ nghĩa xã hội."
+      },
+      {
+        "id": "D",
+        "text": "Kinh tế Việt Nam mất cân đối, chủ yếu là sản xuất nhỏ, phân tán."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 325,
+    "code": "C3-THI-251",
+    "question": "Nổi bật trong đường lối đổi mới về kinh tế do Đại hội VI của Đảng (1986) đề ra là:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Phát triển nhiều thành phần kinh tế; xóa bỏ cơ chế tập trung quan liêu, hành chính, bao cấp chuyển sang hạch toán, kinh doanh, kết hợp kế hoạch với thị trường."
+      },
+      {
+        "id": "B",
+        "text": "Phát triển nhiều thành phần kinh tế; chuyển sang nền kinh tế thị trường định hướng xã hội chủ nghĩa."
+      },
+      {
+        "id": "C",
+        "text": "Phát triển nhiều thành phần kinh tế, trong đó kinh tế Nhà nước giữ vai trò chủ đạo."
+      },
+      {
+        "id": "D",
+        "text": "Xóa bỏ cơ chế tập trung quan liêu, hành chính, bao cấp chuyển sang nền kinh tế xã hội chủ nghĩa."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 326,
+    "code": "C3-THI-251",
+    "question": "Nội dung nào sau đây thể hiện tư duy đổi mới quan trọng trong kết luận của Bộ Chính trị tháng 8/1986?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Điều chỉnh lớn về cơ cấu sản xuất và đầu tư theo hướng phù hợp với thực tiễn của đất nước."
+      },
+      {
+        "id": "B",
+        "text": "Điều chỉnh lớn về nhịp độ phát triển theo hướng phù hợp nền kinh tế thế giới."
+      },
+      {
+        "id": "C",
+        "text": "Điều chỉnh lớn mô hình công nghiệp hóa theo kiểu Liên Xô theo hướng ưu tiên công nghiệp nặng."
+      },
+      {
+        "id": "D",
+        "text": "Điều chỉnh lớn về các thành phần kinh tế theo hướng phù hợp với nền kinh tế thị trường của Việt Nam."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 327,
+    "code": "C3-THI-243",
+    "question": "Phương án nào dưới đây không phải là mục tiêu và động lực chính của sự phát triển được Đại hội VII của Đảng (1991) xác định?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Vì con người, làm theo năng lực, hưởng theo nhu cầu."
+      },
+      {
+        "id": "B",
+        "text": "Vì con người, do con người, giải phóng sức sản xuất, khơi dậy mọi tiềm năng của mỗi cá nhân, mỗi tập thể lao động và của cả cộng đồng dân tộc."
+      },
+      {
+        "id": "C",
+        "text": "Động viên và tạo điều kiện cho mọi người Việt Nam phát huy ý chí tự lực tự cường, cần kiệm xây dựng và bảo vệ Tổ quốc, ra sức làm giàu cho mình và cho đất nước."
+      },
+      {
+        "id": "D",
+        "text": "Mọi người được tự do kinh doanh theo pháp luật, được bảo hộ quyền sở hữu và thu nhập hợp pháp."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 328,
+    "code": "C3-THI-243",
+    "question": "Phương án nào dưới đây không phải là nhiệm vụ bao trùm, mục tiêu tổng quát trong những năm còn lại của chặng đường đầu tiên được Đại hội VI của Đảng (1986) đã xác định?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Việt Nam tạo được nhiều chuyển biến vượt bậc trên mọi lĩnh vực kinh tế, chính trị, văn hóa – xã hội, phòng chống dịch bệnh và quốc phòng an ninh."
+      },
+      {
+        "id": "B",
+        "text": "Sản xuất đủ tiêu dùng và có tích lũy; bước đầu tạo ra một cơ cấu kinh tế hợp lý."
+      },
+      {
+        "id": "C",
+        "text": "Đặc biệt chú trọng ba chương trình kinh tế lớn là lương thực thực phẩm, hàng tiêu dùng và hàng xuất khẩu."
+      },
+      {
+        "id": "D",
+        "text": "Thực hiện cải tạo xã hội chủ nghĩa thường xuyên với hình thức, bước đi thích hợp, làm cho quan hệ sản xuất phù hợp với lực lượng sản xuất phát triển."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 329,
+    "code": "C3-THI-243",
+    "question": "Phương án nào dưới đây không phải là quan điểm về xây dựng hệ thống chính trị ở Việt Nam được Cương lĩnh năm 1991 của Đảng xác định?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Xây dựng chính quyền công – nông – binh."
+      },
+      {
+        "id": "B",
+        "text": "Xây dựng Nhà nước xã hội chủ nghĩa của nhân dân, do nhân dân, vì nhân dân."
+      },
+      {
+        "id": "C",
+        "text": "Xây dựng Mặt trận Tổ quốc Việt Nam và các đoàn thể nhân dân."
+      },
+      {
+        "id": "D",
+        "text": "Trong hệ thống chính trị, Đảng Cộng sản Việt Nam là một bộ phận và là tổ chức lãnh đạo hệ thống đó."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 330,
+    "code": "C3-THI-243",
+    "question": "Phương án nào dưới đây không phải là mục tiêu đổi mới và chỉnh đốn Đảng được Hội nghị Trung ương 3 khóa VII (6/1992) xác định?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Nhằm bảo đảm thực hiện có kết quả các nhiệm vụ chính trị do Đại hội VIII đề ra, làm cho dân giàu nước mạnh giữ vững ổn định chính trị."
+      },
+      {
+        "id": "B",
+        "text": "Nhằm nâng cao năng lực lãnh đạo và sức chiến đấu của Đảng, phù hợp với yêu cầu khách quan của cách mạng nước ta trong tình hình mới."
+      },
+      {
+        "id": "C",
+        "text": "Nhằm làm trong sạch đội ngũ cán bộ, đảng viên."
+      },
+      {
+        "id": "D",
+        "text": "Nhằm phát triển kinh tế, làm cho dân giàu nước mạnh giữ vững ổn định chính trị."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 331,
+    "code": "C3-THI-243",
+    "question": "Phương án nào dưới đây không phải là tiêu chuẩn chủ yếu của cán bộ được Hội nghị Trung ương 3 khóa VIII của Đảng (6/1997) xác định?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Có kỹ năng về chuyển đổi số, trí tuệ, thể lực. Có khát vọng cống hiến dựng xây quê hương, đất nước."
+      },
+      {
+        "id": "B",
+        "text": "Có tinh thần yêu nước sâu sắc, tận tụy phục vụ nhân dân. Kiên định mục tiêu độc lập dân tộc và chủ nghĩa xã hội."
+      },
+      {
+        "id": "C",
+        "text": "Cần kiệm liêm chính, chí công vô tư. Không tham nhũng và kiên quyết đấu tranh chống tham nhũng."
+      },
+      {
+        "id": "D",
+        "text": "Có ý thức tổ chức kỷ luật. Trung thực, không cơ hội, gắn bó mật thiết với nhân dân, được nhân dân tín nhiệm."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 332,
+    "code": "C3-THI-243",
+    "question": "Phương án nào dưới đây không phản ánh mục tiêu đổi mới cơ chế quản lý kinh tế được Đại hội VI của Đảng (1986) đã xác định?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Tiếp thu có chọn lọc thành tựu và văn minh nhân loại, chủ động hướng kinh tế thị trường phục vụ cho việc nâng cao đời sống nhân dân, sự phồn vinh và hạnh phúc toàn xã hội."
+      },
+      {
+        "id": "B",
+        "text": "Xây dựng và tổ chức thực hiện một cách thiết thực, có hiệu quả các chính sách xã hội."
+      },
+      {
+        "id": "C",
+        "text": "Giải quyết cho được những vấn đề cấp bách về phân phối, lưu thông."
+      },
+      {
+        "id": "D",
+        "text": "Bảo đảm nhu cầu củng cố quốc phòng và an ninh."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 333,
+    "code": "C3-THI-243",
+    "question": "Sai lầm trong quá trình tổ chức thực hiện Nghị quyết Trung ương lần thứ 8 khóa V của Đảng (6/1985) là gì?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Vội vàng đổi tiền và tổng điều chỉnh giá, lương trong tình hình chưa chuẩn bị đủ mọi mặt."
+      },
+      {
+        "id": "B",
+        "text": "Vội vàng mở cửa, thu hút đầu tư nước ngoài trong khi chưa chuẩn bị đầy đủ cơ sở pháp lý."
+      },
+      {
+        "id": "C",
+        "text": "Vội vàng chuyển sang nền kinh tế thị trường trong khi thể chế chính trị còn chưa sẵn sàng đổi mới."
+      },
+      {
+        "id": "D",
+        "text": "Cả ba đáp án kia đều đúng."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 334,
+    "code": "C3-THI-251",
+    "question": "Sự kiện nào cho thấy bước chuyển rõ rệt về tư duy trong cải cách kinh tế vào đầu thập niên 1980?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Ban hành Chỉ thị 100-CT/TW về khoán sản phẩm trong nông nghiệp."
+      },
+      {
+        "id": "B",
+        "text": "Ban hành Nghị quyết 02-NQ/HNTW về định hướng phát triển khoa học và công nghệ thời kỳ công nghiệp hóa, hiện đại hóa."
+      },
+      {
+        "id": "C",
+        "text": "Ưu tiên phát triển công nghiệp nặng trên cơ sở phát triển nông nghiệp và công nghiệp nhẹ."
+      },
+      {
+        "id": "D",
+        "text": "Ưu tiên phát triển công nghiệp nặng tạo thành cơ cấu công – nông nghiệp hợp lý."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 335,
+    "code": "C3-THI-243",
+    "question": "Tại Hội nghị giữa nhiệm kỳ khóa VII (1/1994), Đảng khẳng định điều cơ bản có tính chất quyết định nhất sự nghiệp đổi mới là gì?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Đảng đã giữ gìn vai trò lãnh đạo duy nhất, nêu cao tinh thần độc lập tự chủ và sáng tạo, có đường lối, chính sách phù hợp với quy luật và thực tiễn Việt Nam."
+      },
+      {
+        "id": "B",
+        "text": "Đảng đã giữ gìn vai trò lãnh đạo duy nhất, chú trọng đường lối đối ngoại phù hợp với quy luật và thực tiễn Việt Nam."
+      },
+      {
+        "id": "C",
+        "text": "Đảng đã giữ gìn vai trò lãnh đạo duy nhất, chú trọng phát triển nền kinh tế tư nhân."
+      },
+      {
+        "id": "D",
+        "text": "Đảng đã giữ gìn vai trò lãnh đạo duy nhất, chú trọng phát triển chuyển đổi số."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 336,
+    "code": "C3-TLHDHT",
+    "question": "Thái độ của Đảng ta trong đánh giá tình hình và nhiệm vụ ở Báo cáo Chính trị tại Đại hội VI của Đảng (1986) là gì?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Nhìn thẳng vào sự thật, đánh giá đúng sự thật, nói rõ sự thật."
+      },
+      {
+        "id": "B",
+        "text": "Nhìn thẳng vào thực tế, đánh giá đúng thực tế, nói rõ thực tế."
+      },
+      {
+        "id": "C",
+        "text": "Nhìn thẳng vào thực tiễn, đánh giá đúng thực tiễn, nói rõ thực tiễn."
+      },
+      {
+        "id": "D",
+        "text": "Nhìn thẳng vào thực trạng, đánh giá đúng thực trạng, nói rõ thực trạng."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 337,
+    "code": "C3-THI-251",
+    "question": "Thành tựu nổi bật, có ý nghĩa quan trọng của Việt Nam giai đoạn 1975–1986 là gì?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Hoàn thành thống nhất đất nước về mặt nhà nước, xác lập một quốc gia thống nhất."
+      },
+      {
+        "id": "B",
+        "text": "Tăng cường quan hệ hợp tác với các quốc gia xã hội chủ nghĩa và các nước không liên kết."
+      },
+      {
+        "id": "C",
+        "text": "Phát triển mạnh mẽ nền công nghiệp nặng, thúc đẩy tăng trưởng kinh tế nhanh chóng."
+      },
+      {
+        "id": "D",
+        "text": "Đảm bảo an ninh quốc phòng, xây dựng một nền kinh tế độc lập và tự chủ."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 338,
+    "code": "C3-THI-251",
+    "question": "Theo quyết định của Quốc hội khóa đầu tiên, Quốc ca của nước Cộng hòa Xã hội Chủ nghĩa Việt Nam là:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Tiến quân ca."
+      },
+      {
+        "id": "B",
+        "text": "Tiến bước dưới quân kỳ."
+      },
+      {
+        "id": "C",
+        "text": "Đảng là cuộc sống của tôi."
+      },
+      {
+        "id": "D",
+        "text": "Chào mừng Đảng Cộng sản Việt Nam."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 339,
+    "code": "C3-THI-243",
+    "question": "Thời kỳ đổi mới, Đảng ta xác định yếu tố nào là nền tảng và động lực của công nghiệp hóa, hiện đại hóa?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Khoa học và công nghệ."
+      },
+      {
+        "id": "B",
+        "text": "Sự quản lý của nhà nước."
+      },
+      {
+        "id": "C",
+        "text": "Cơ cấu kinh tế."
+      },
+      {
+        "id": "D",
+        "text": "Con người."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 340,
+    "code": "C3-THI-251",
+    "question": "Thời kỳ đổi mới, Đảng và Nhà nước ta đã thực hiện phương thức phân bổ nguồn lực cho công nghiệp hóa theo cách nào?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Chủ yếu thông qua cơ chế thị trường."
+      },
+      {
+        "id": "B",
+        "text": "Phân bổ theo năng lực sản xuất, kinh doanh của doanh nghiệp."
+      },
+      {
+        "id": "C",
+        "text": "Theo ý chí chủ quan của doanh nghiệp."
+      },
+      {
+        "id": "D",
+        "text": "Thông qua cơ chế kế hoạch hóa, tập trung của Nhà nước."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 341,
+    "code": "C3-THI-243",
+    "question": "Tính quy luật của công nghiệp hóa, hiện đại hóa là gì?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Tỷ trọng nông nghiệp giảm, công nghiệp, dịch vụ tăng."
+      },
+      {
+        "id": "B",
+        "text": "Tỷ trọng của nông nghiệp tăng, công nghiệp và dịch vụ giảm."
+      },
+      {
+        "id": "C",
+        "text": "Tỷ trọng của nông nghiệp và công nghiệp, dịch vụ bằng nhau."
+      },
+      {
+        "id": "D",
+        "text": "Xóa bỏ nông nghiệp, phát triển công nghiệp, dịch vụ."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 342,
+    "code": "C3-THI-251",
+    "question": "Tổng kết kinh nghiệm lãnh đạo trong công cuộc đổi mới, Đảng ta xác định: Nguồn cội sức mạnh của cả hệ thống chính trị, dưới sự lãnh đạo của Đảng là:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Bắt nguồn và được nhân lên từ sức mạnh của nhân dân."
+      },
+      {
+        "id": "B",
+        "text": "Bắt nguồn và được nhân lên từ sức mạnh của nhân dân cùng sự hợp tác quốc tế."
+      },
+      {
+        "id": "C",
+        "text": "Bắt nguồn từ sức mạnh của nhân dân và vai trò của lãnh tụ."
+      },
+      {
+        "id": "D",
+        "text": "Bắt nguồn và được nhân lên từ việc hoạch định chủ trương, đường lối đúng đắn, sáng tạo, khoa học của Đảng."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 343,
+    "code": "C3-THI-243",
+    "question": "Trong các thành tố của hệ thống chính trị ở Việt Nam hiện nay, thành tố nào vừa lãnh đạo hệ thống chính trị, vừa là bộ phận của hệ thống đó?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Đảng Cộng sản Việt Nam."
+      },
+      {
+        "id": "B",
+        "text": "Mặt trận Tổ quốc Việt Nam."
+      },
+      {
+        "id": "C",
+        "text": "Nhà nước Cộng hòa Xã hội Chủ nghĩa Việt Nam."
+      },
+      {
+        "id": "D",
+        "text": "Các đoàn thể chính trị - xã hội."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 344,
+    "code": "C3-THI-251",
+    "question": "Trong cuộc chiến tranh bảo vệ biên giới phía Bắc năm 1979, điều gì thể hiện rõ tinh thần đoàn kết toàn dân của Việt Nam?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Cả nước thực hiện tổng động viên, toàn dân tham gia phòng thủ."
+      },
+      {
+        "id": "B",
+        "text": "Cả nước tham gia phong trào \"Ba đảm đang\", \"Ba sẵn sàng\"."
+      },
+      {
+        "id": "C",
+        "text": "Cả nước đồng lòng tham gia phong trào \"Năm xung phong\"."
+      },
+      {
+        "id": "D",
+        "text": "Cả nước xung kích tham gia phong trào \"Thi đua, tình nguyện xây dựng và bảo vệ Tổ quốc\"."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 345,
+    "code": "C3-THI-251",
+    "question": "Trong giai đoạn 1982–1986, Đảng đã xác định phải xóa bỏ hình thức bao cấp nào để thúc đẩy sản xuất?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Bao cấp qua giá và lương."
+      },
+      {
+        "id": "B",
+        "text": "Bao cấp phương tiện đi lại."
+      },
+      {
+        "id": "C",
+        "text": "Bao cấp giáo dục phổ thông."
+      },
+      {
+        "id": "D",
+        "text": "Bao cấp xăng dầu và điện nước."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 346,
+    "code": "C3-THI-251",
+    "question": "Trong nền kinh tế nhiều thành phần ở Việt Nam hiện nay, thành phần kinh tế nào đóng vai trò chủ đạo, là công cụ chủ yếu để Nhà nước điều tiết nền kinh tế?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Kinh tế nhà nước."
+      },
+      {
+        "id": "B",
+        "text": "Kinh tế tập thể."
+      },
+      {
+        "id": "C",
+        "text": "Kinh tế tư nhân."
+      },
+      {
+        "id": "D",
+        "text": "Kinh tế có vốn đầu tư nước ngoài."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 347,
+    "code": "C3-THI-243",
+    "question": "Trong nội dung xây dựng hệ thống chính trị ở nước ta hiện nay, xây dựng và phát huy quyền làm chủ của nhân dân lao động theo cơ chế nào?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Đảng lãnh đạo, Nhà nước quản lý, nhân dân làm chủ."
+      },
+      {
+        "id": "B",
+        "text": "Đảng lãnh đạo, Nhà nước làm chủ, nhân dân quản lý."
+      },
+      {
+        "id": "C",
+        "text": "Nhân dân làm chủ, Đảng lãnh đạo, Nhà nước làm chủ."
+      },
+      {
+        "id": "D",
+        "text": "Nhân dân làm chủ, Đảng và Nhà nước quản lý."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 348,
+    "code": "C3-THI-251",
+    "question": "Trong quá trình thực hiện công nghiệp hóa, hiện đại hóa thời kỳ đổi mới, Đảng Cộng sản Việt Nam xác định yếu tố chủ yếu nào để tăng trưởng kinh tế?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Vốn, khoa học và công nghệ, con người, cơ cấu kinh tế, thể chế chính trị và quản lý nhà nước."
+      },
+      {
+        "id": "B",
+        "text": "Vốn, tài nguyên thiên nhiên, khoa học và công nghệ, con người, cơ cấu kinh tế."
+      },
+      {
+        "id": "C",
+        "text": "Tài nguyên thiên nhiên, khoa học và công nghệ, con người, cơ cấu kinh tế, thể chế chính trị."
+      },
+      {
+        "id": "D",
+        "text": "Con người, cơ cấu kinh tế, tài nguyên thiên nhiên, thể chế chính trị và quản lý nhà nước."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 349,
+    "code": "C3-THI-243",
+    "question": "Trong thập niên 90 của thế kỷ XX, một trong những thành tựu quan trọng về đối ngoại của Việt Nam là:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Việt Nam thiết lập quan hệ ngoại giao với Mỹ."
+      },
+      {
+        "id": "B",
+        "text": "Việt Nam trở thành thành viên của APEC."
+      },
+      {
+        "id": "C",
+        "text": "Việt Nam trở thành thành viên của Liên Hợp Quốc."
+      },
+      {
+        "id": "D",
+        "text": "Việt Nam trở thành thành viên của Tổ chức Thương mại Thế giới (WTO)."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 350,
+    "code": "C3-THI-243",
+    "question": "Trong xây dựng hệ thống chính trị ở Việt Nam hiện nay, giữ vai trò lãnh đạo toàn bộ hoạt động xã hội là:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Đảng Cộng sản."
+      },
+      {
+        "id": "B",
+        "text": "Chính phủ."
+      },
+      {
+        "id": "C",
+        "text": "Nhà nước."
+      },
+      {
+        "id": "D",
+        "text": "Nhân dân."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 351,
+    "code": "C3-THI-243",
+    "question": "Trung Quốc phát động cuộc tiến công quy mô lớn xâm phạm lãnh thổ Việt Nam trên toàn tuyến biên giới phía Bắc vào thời gian nào dưới đây?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Ngày 17/2/1979."
+      },
+      {
+        "id": "B",
+        "text": "Ngày 5/3/1979."
+      },
+      {
+        "id": "C",
+        "text": "Ngày 18/2/1978."
+      },
+      {
+        "id": "D",
+        "text": "Ngày 19/2/1978."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 352,
+    "code": "C3-THI-251",
+    "question": "Tư duy mới của Đại hội V của Đảng (1982) về công nghiệp hóa xã hội chủ nghĩa có điểm khác với Đại hội IV của Đảng (1976) ở chỗ nào?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Chuyển từ ưu tiên công nghiệp nặng sang coi trọng nông nghiệp và hàng tiêu dùng."
+      },
+      {
+        "id": "B",
+        "text": "Bỏ hẳn mục tiêu công nghiệp hóa, chỉ tập trung ổn định đời sống nhân dân."
+      },
+      {
+        "id": "C",
+        "text": "Xem nhẹ quan hệ giữa kinh tế trung ương và kinh tế địa phương."
+      },
+      {
+        "id": "D",
+        "text": "Ưu tiên xây dựng kinh tế quốc doanh trước tư nhân."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 353,
+    "code": "C3-TLHDHT",
+    "question": "Từ thực tiễn cách mạng, Đại hội VI của Đảng (1986) đã rút ra bài học kinh nghiệm quan trọng nhất là:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Trong toàn bộ hoạt động của mình, Đảng phải quán triệt tư tưởng \"lấy dân làm gốc\", xây dựng và phát huy quyền làm chủ của nhân dân lao động."
+      },
+      {
+        "id": "B",
+        "text": "Đảng phải luôn luôn xuất phát từ thực tế, tôn trọng và hành động theo quy luật khách quan."
+      },
+      {
+        "id": "C",
+        "text": "Phải biết kết hợp sức mạnh dân tộc với sức mạnh thời đại trong điều kiện mới."
+      },
+      {
+        "id": "D",
+        "text": "Phải xây dựng Đảng ngang tầm nhiệm vụ chính trị của một đảng cầm quyền lãnh đạo nhân dân tiến hành cuộc cách mạng xã hội chủ nghĩa."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 354,
+    "code": "C3-THI-251",
+    "question": "Việc Đại hội V của Đảng (1982) xác định \"chặng đường đầu tiên\" kéo dài đến cuối thập niên 1980 cho thấy Đảng đã:",
+    "options": [
+      {
+        "id": "A",
+        "text": "Nhận thức rõ tính lâu dài, phức tạp của thời kỳ quá độ lên chủ nghĩa xã hội."
+      },
+      {
+        "id": "B",
+        "text": "Từ bỏ mục tiêu công nghiệp hóa và chuyển sang phát triển dịch vụ."
+      },
+      {
+        "id": "C",
+        "text": "Thay đổi mô hình nhà nước theo hướng đa nguyên, đa đảng."
+      },
+      {
+        "id": "D",
+        "text": "Không còn ưu tiên vai trò của lực lượng sản xuất."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 355,
+    "code": "C3-THI-243",
+    "question": "Vì sao Đại hội VII của Đảng (6/1991) đánh dấu sự chuyển mình phát triển nhận thức của Đảng về xây dựng nền văn hóa thời kỳ đổi mới?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Vì Đảng xác định văn hóa là nền tảng tinh thần của xã hội, vừa là mục tiêu, vừa là động lực thúc đẩy sự phát triển của kinh tế - xã hội."
+      },
+      {
+        "id": "B",
+        "text": "Vì Đảng xác định văn hóa là một trong bảy phương hướng cơ bản trong quá trình xây dựng chủ nghĩa xã hội và bảo vệ Tổ quốc."
+      },
+      {
+        "id": "C",
+        "text": "Vì Đảng xác định văn hóa là một mặt trận, là sự nghiệp cách mạng lâu dài."
+      },
+      {
+        "id": "D",
+        "text": "Vì Đảng xác định phát triển văn hóa đồng bộ với phát triển kinh tế."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 356,
+    "code": "C3-THI-251",
+    "question": "Vì sao Hội nghị Trung ương Đảng lần thứ 8 (6/1985) được coi là bước đột phá trong tư duy kinh tế trước đổi mới của Đảng?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Đặt nền móng cho việc xóa bỏ cơ chế bao cấp và chuyển sang hạch toán kinh doanh xã hội chủ nghĩa."
+      },
+      {
+        "id": "B",
+        "text": "Tăng cường đầu tư vào công nghiệp nặng và tăng cường hành chính hóa cơ chế quản lý."
+      },
+      {
+        "id": "C",
+        "text": "Phát triển kinh tế thị trường, hội nhập kinh tế thế giới."
+      },
+      {
+        "id": "D",
+        "text": "Mở rộng hệ thống thương mại tự do và cạnh tranh."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 357,
+    "code": "C3-THI-243",
+    "question": "Vì sao Hội nghị Trung ương 8 khóa V (6/1985) được coi là bước đột phá thứ hai trong quá trình tìm tòi, đổi mới kinh tế của Đảng?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Vì xóa bỏ cơ chế tập trung quan liêu hành chính bao cấp, lấy giá – lương – tiền là khâu đột phá để chuyển hẳn nền kinh tế sang hạch toán, kinh doanh xã hội chủ nghĩa."
+      },
+      {
+        "id": "B",
+        "text": "Vì xóa bỏ cơ chế tập trung quan liêu hành chính bao cấp, lấy giá – lương – tiền là khâu đột phá để chuyển hẳn nền kinh tế sang hạch toán, cơ chế thị trường."
+      },
+      {
+        "id": "C",
+        "text": "Vì xóa bỏ cơ chế tập trung quan liêu hành chính bao cấp, lấy giá – lương – tiền là khâu đột phá để chuyển hẳn nền kinh tế sang hạch toán, kinh tế thị trường."
+      },
+      {
+        "id": "D",
+        "text": "Vì xóa bỏ cơ chế tập trung quan liêu hành chính bao cấp, lấy đổi mới hệ thống chính trị là khâu đột phá để chuyển hẳn nền kinh tế sang hạch toán, kinh doanh xã hội chủ nghĩa."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 358,
+    "code": "C3-THI-251",
+    "question": "Vì sao một số chủ trương kinh tế được Đại hội IV của Đảng (1976) đưa ra bị xem là nóng vội và thiếu thực tiễn?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Vì đề ra các chỉ tiêu vượt quá khả năng và điều kiện thực tế của đất nước."
+      },
+      {
+        "id": "B",
+        "text": "Vì chưa xác định đúng mô hình chủ nghĩa xã hội phù hợp với Việt Nam."
+      },
+      {
+        "id": "C",
+        "text": "Vì không đánh giá đúng vai trò của ngành dịch vụ trong phát triển kinh tế."
+      },
+      {
+        "id": "D",
+        "text": "Vì không có sự tham khảo kinh nghiệm của các nước xã hội chủ nghĩa khác."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 359,
+    "code": "C3-THI-243",
+    "question": "Vì sao Hội nghị Trung ương 6 khóa IV (8/1979) là \"bước đột phá đầu tiên\" đổi mới kinh tế của Đảng?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Vì khắc phục những khuyết điểm, sai lầm trong quản lý kinh tế, trong cải tạo xã hội chủ nghĩa, phá bỏ những rào cản để cho \"sản xuất bung ra\"."
+      },
+      {
+        "id": "B",
+        "text": "Vì khắc phục những khuyết điểm, sai lầm trong quản lý kinh tế, trong cải tạo xã hội chủ nghĩa, phá bỏ những rào cản để cho nền kinh tế bước sang giai đoạn hội nhập quốc tế."
+      },
+      {
+        "id": "C",
+        "text": "Vì khắc phục những khuyết điểm, sai lầm trong quản lý kinh tế - xã hội, phá bỏ những rào cản để cho sản xuất phát triển mạnh."
+      },
+      {
+        "id": "D",
+        "text": "Vì khắc phục những khuyết điểm trong cải tạo xã hội chủ nghĩa và xây dựng văn hóa, phá bỏ những rào cản để cho sản xuất bung ra."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 360,
+    "code": "C3-THI-243",
+    "question": "Vì sao nội dung, bước đi, cách làm thực hiện công nghiệp hóa xã hội chủ nghĩa trong chặng đường đầu tiên được xác định trong Đại hội V của Đảng (1982) phù hợp với thực tiễn của Việt Nam?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Vì khai thác và phát huy thế mạnh, tiềm năng của đất nước về thế mạnh công - nông nghiệp, tạo ra những tiền đề cần thiết cho chặng đường tiếp theo."
+      },
+      {
+        "id": "B",
+        "text": "Vì khai thác và phát huy thế mạnh, tiềm năng của đất nước về thế mạnh công nghiệp nặng, tạo ra những tiền đề cần thiết cho chặng đường tiếp theo."
+      },
+      {
+        "id": "C",
+        "text": "Vì khai thác và phát huy thế mạnh, tiềm năng của đất nước về thế mạnh nông nghiệp, tạo ra những tiền đề cần thiết cho chặng đường tiếp theo."
+      },
+      {
+        "id": "D",
+        "text": "Vì khai thác và phát huy thế mạnh, tiềm năng của đất nước về thế mạnh nông nghiệp, thương mại, dịch vụ, tạo ra những tiền đề cần thiết cho chặng đường tiếp theo."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 361,
+    "code": "C3-THI-251",
+    "question": "Vì sao trong quá trình thực hiện, chủ trương của Đảng đề ra tại Đại hội V (1982) dù có bước tiến trong đổi mới tư duy song vẫn không đạt được các mục tiêu kinh tế đã đề ra?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Vướng mắc trong tổ chức thực hiện, chưa có chính sách, giải pháp cụ thể để đưa công nghiệp nặng lên mặt trận hàng đầu."
+      },
+      {
+        "id": "B",
+        "text": "Vướng mắc trong tổ chức thực hiện, chưa có chính sách, giải pháp cụ thể, đồng bộ cho nông nghiệp."
+      },
+      {
+        "id": "C",
+        "text": "Không đưa ra chỉ tiêu cụ thể trong phát triển, chưa có chính sách phát triển khoa học công nghệ."
+      },
+      {
+        "id": "D",
+        "text": "Thiếu sự phối hợp giữa các bộ ngành, chưa có chính sách đồng bộ để thúc đẩy du lịch."
+      }
+    ],
+    "answer": "A"
+  },
+  {
+    "id": 362,
+    "code": "C3-THI-243",
+    "question": "Xây dựng và phát triển văn hóa Việt Nam là nhiệm vụ của ai?",
+    "options": [
+      {
+        "id": "A",
+        "text": "Nhiệm vụ của toàn dân do Đảng lãnh đạo, trong đó đội ngũ trí thức giữ vai trò quan trọng."
+      },
+      {
+        "id": "B",
+        "text": "Nhiệm vụ của giai cấp công nhân và nông dân."
+      },
+      {
+        "id": "C",
+        "text": "Nhiệm vụ của những người làm công tác văn hóa."
+      },
+      {
+        "id": "D",
+        "text": "Nhiệm vụ của đội ngũ trí thức."
+      }
+    ],
+    "answer": "A"
   }
 ];

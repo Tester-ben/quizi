@@ -1745,3 +1745,35 @@ button,
     justify-self: start;
   }
 }
+
+/* ===============================
+   Patch: keep left sidebar fixed while scrolling questions
+   =============================== */
+@media (min-width: 901px) {
+  .app-shell {
+    grid-template-columns: 290px minmax(0, 1fr);
+  }
+
+  .sidebar {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 290px;
+    height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    z-index: 80;
+  }
+
+  .main-content {
+    grid-column: 2;
+    min-width: 0;
+  }
+
+  .question-map-grid {
+    max-height: min(560px, calc(100vh - 385px));
+  }
+}
