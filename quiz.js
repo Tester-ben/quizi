@@ -665,6 +665,28 @@ function renderReview() {
   const html = state.questions.map((question, index) => {
     const isCorrect = question.userAnswer === question.answer;
     const originalNumber = question.id || index + 1;
+    const reviewOptionsHtml = question.displayOptions.map((option, optionIndex) => {
+      const displayLetter = String.fromCharCode(65 + optionIndex);
+      const isSelected = option.id === question.userAnswer;
+      const isAnswer = option.id === question.answer;
+      const optionClasses = ["review-option"];
+      if (isAnswer) optionClasses.push("correct");
+      if (isSelected && !isAnswer) optionClasses.push("wrong");
+      if (isSelected) optionClasses.push("selected");
+
+      let marker = "";
+      if (isAnswer && isSelected) marker = '<span class="review-option-note">Bạn chọn • Đáp án đúng</span>';
+      else if (isAnswer) marker = '<span class="review-option-note">Đáp án đúng</span>';
+      else if (isSelected) marker = '<span class="review-option-note">Bạn chọn</span>';
+
+      return `
+        <div class="${optionClasses.join(" ")}">
+          <span class="option-letter">${displayLetter}</span>
+          <span class="review-option-text">${escapeHtml(option.text)}</span>
+          ${marker}
+        </div>`;
+    }).join("");
+
     return `
       <article class="review-card ${isCorrect ? "good" : "bad"}" id="review-question-${index}" data-review-status="${isCorrect ? "good" : "bad"}">
         <div class="review-topline">
@@ -676,6 +698,7 @@ function renderReview() {
         <h4>Câu ${originalNumber}. ${escapeHtml(question.question)}</h4>
         <p><strong>Bạn chọn:</strong> ${escapeHtml(getDisplayedAnswerText(question, question.userAnswer))}</p>
         <p><strong>Đáp án đúng:</strong> ${escapeHtml(getDisplayedAnswerText(question, question.answer))}</p>
+        <div class="review-option-list">${reviewOptionsHtml}</div>
       </article>`;
   }).join("");
   $("#reviewList").innerHTML = html;
@@ -848,6 +871,8 @@ function bindEvents() {
 
   $("#startMainBtn").addEventListener("click", () => startQuiz(state.mode));
   $("#submitBtn").addEventListener("click", submitQuiz);
+  const bottomSubmitBtn = $("#bottomSubmitBtn");
+  if (bottomSubmitBtn) bottomSubmitBtn.addEventListener("click", submitQuiz);
   $("#newQuizBtn").addEventListener("click", () => startQuiz(state.mode));
   $("#retryBtn").addEventListener("click", retryQuiz);
   const wrongOnlyBtn = $("#wrongOnlyBtn");

@@ -1777,3 +1777,88 @@ button,
     max-height: min(560px, calc(100vh - 385px));
   }
 }
+
+
+/* Nút nộp bài ở cuối danh sách câu hỏi */
+.bottom-submit-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 28px 0 8px;
+}
+
+.bottom-submit-btn {
+  min-width: 220px;
+  min-height: 52px;
+  font-size: 16px;
+  box-shadow: 0 16px 34px rgba(37, 99, 235, .22);
+}
+
+@media (max-width: 560px) {
+  .bottom-submit-wrap {
+    padding-top: 22px;
+  }
+
+  .bottom-submit-btn {
+    width: 100%;
+  }
+}
+
+
+/* Hiển thị lại đầy đủ 4 phương án sau khi nộp bài */
+.review-option-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+.review-option {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  min-height: 54px;
+  padding: 10px 14px;
+  border: 1px solid #d9e0ea;
+  border-radius: 14px;
+  background: #fff;
+}
+.review-option .option-letter {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #f1f3f7;
+  font-weight: 800;
+}
+.review-option.correct {
+  border-color: rgba(22, 163, 74, .55);
+  background: rgba(22, 163, 74, .06);
+}
+.review-option.correct .option-letter {
+  background: var(--good);
+  color: #fff;
+}
+.review-option.wrong {
+  border-color: rgba(220, 38, 38, .55);
+  background: rgba(220, 38, 38, .06);
+}
+.review-option.wrong .option-letter {
+  background: var(--bad);
+  color: #fff;
+}
+.review-option-note {
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.review-option.correct .review-option-note { color: var(--good); }
+.review-option.wrong .review-option-note { color: var(--bad); }
+@media (max-width: 640px) {
+  .review-option {
+    grid-template-columns: 32px minmax(0, 1fr);
+  }
+  .review-option-note {
+    grid-column: 2;
+    white-space: normal;
+  }
+}
