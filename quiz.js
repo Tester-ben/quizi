@@ -1,5 +1,5 @@
 const OUTLINE_BATCH_SIZE = 20;
-const RANDOM_BATCH_SIZE = 45;
+const RANDOM_BATCH_SIZE = 50;
 const DEFAULT_RANGE_START = 1;
 const DEFAULT_RANGE_END = 20;
 const STORAGE_KEY = "quiz_outline_cursor_v1";
@@ -17,6 +17,7 @@ const state = {
   lastQuizSeed: null,
   activeRange: { start: DEFAULT_RANGE_START, end: DEFAULT_RANGE_END },
   activeOutlineRange: { start: DEFAULT_RANGE_START, end: DEFAULT_RANGE_END },
+  activeRandomRange: { start: DEFAULT_RANGE_START, end: 100 },
   randomAllowRepeat: false
 };
 
@@ -32,8 +33,8 @@ const modeConfig = {
     label: "Đảo câu"
   },
   random: {
-    title: "Random 45 câu",
-    subtitle: "Random 45 câu không trùng qua từng lượt. Có thể reset random hoặc random lại có trùng lặp.",
+    title: "Random 50 câu",
+    subtitle: "Chọn khoảng câu, sau đó random 50 câu không trùng hoặc cho phép trùng lặp giữa các lượt.",
     label: "Random"
   },
   wrong: {
@@ -304,19 +305,28 @@ function getRandomQuestionsWithoutRepeat() {
   const bank = getBank();
   if (!bank.length) return [];
 
+  const range = getSelectedRandomRange();
+  state.activeRandomRange = range;
+  const rangeBank = bank.slice(range.start - 1, range.end);
+
+  if (rangeBank.length < RANDOM_BATCH_SIZE) {
+    alert(`Khoảng câu ${range.start}–${range.end} chỉ có ${rangeBank.length} câu. Vui lòng chọn khoảng có ít nhất ${RANDOM_BATCH_SIZE} câu.`);
+    return null;
+  }
+
   let usedIds = getRandomUsedIds();
-  let available = bank.filter(question => !usedIds.has(getQuestionKey(question)));
+  let available = rangeBank.filter(question => !usedIds.has(getQuestionKey(question)));
 
   if (!available.length) {
-    const shouldReset = confirm("Bạn đã làm hết toàn bộ câu random không trùng. Bạn muốn reset random để làm lại từ đầu không?");
+    const shouldReset = confirm("Bạn đã làm hết các câu trong khoảng đã chọn. Bạn muốn reset random để làm lại từ đầu không?");
     if (!shouldReset) return null;
     resetRandomProgress(true);
     usedIds = getRandomUsedIds();
-    available = [...bank];
+    available = [...rangeBank];
   }
 
   if (available.length < RANDOM_BATCH_SIZE) {
-    const shouldContinue = confirm(`Bạn đã làm hết, còn ${available.length} câu thôi. Bạn muốn random không?`);
+    const shouldContinue = confirm(`Trong khoảng đã chọn chỉ còn ${available.length} câu chưa làm. Bạn có muốn làm phần câu còn lại không?`);
     if (!shouldContinue) return null;
   }
 
@@ -328,7 +338,16 @@ function getRandomQuestionsWithoutRepeat() {
 
 function getRandomQuestionsWithRepeat() {
   const bank = getBank();
-  return shuffleArray(bank).slice(0, Math.min(RANDOM_BATCH_SIZE, bank.length)).map(question => normalizeQuizQuestion(question, true));
+  const range = getSelectedRandomRange();
+  state.activeRandomRange = range;
+  const rangeBank = bank.slice(range.start - 1, range.end);
+
+  if (rangeBank.length < RANDOM_BATCH_SIZE) {
+    alert(`Khoảng câu ${range.start}–${range.end} chỉ có ${rangeBank.length} câu. Vui lòng chọn khoảng có ít nhất ${RANDOM_BATCH_SIZE} câu.`);
+    return null;
+  }
+
+  return shuffleArray(rangeBank).slice(0, RANDOM_BATCH_SIZE).map(question => normalizeQuizQuestion(question, true));
 }
 
 
@@ -371,6 +390,15 @@ function getSelectedOutlineRange() {
   return { start, end, count: end - start + 1 };
 }
 
+function getSelectedRandomRange() {
+  const bank = getBank();
+  const total = bank.length || 100;
+  let start = clampNumber($("#randomRangeStart")?.value || DEFAULT_RANGE_START, 1, total);
+  let end = clampNumber($("#randomRangeEnd")?.value || Math.min(100, total), 1, total);
+  if (start > end) [start, end] = [end, start];
+  return { start, end, count: end - start + 1 };
+}
+
 function syncRangeInputs() {
   const bank = getBank();
   const total = bank.length || DEFAULT_RANGE_END;
@@ -393,6 +421,18 @@ function syncOutlineRangeInputs() {
   endInput.max = String(total);
   if (!startInput.value) startInput.value = String(DEFAULT_RANGE_START);
   if (!endInput.value) endInput.value = String(Math.min(DEFAULT_RANGE_END, total));
+}
+
+function syncRandomRangeInputs() {
+  const bank = getBank();
+  const total = bank.length || 100;
+  const startInput = $("#randomRangeStart");
+  const endInput = $("#randomRangeEnd");
+  if (!startInput || !endInput) return;
+  startInput.max = String(total);
+  endInput.max = String(total);
+  if (!startInput.value) startInput.value = String(DEFAULT_RANGE_START);
+  if (!endInput.value) endInput.value = String(Math.min(100, total));
 }
 
 function getQuestionsForMode(mode, options = {}) {
@@ -526,6 +566,7 @@ function renderQuiz() {
     meta += ` • Đảo câu ${state.activeOutlineRange.start}–${state.activeOutlineRange.end}`;
   }
   if (state.mode === "random") {
+    meta += ` • Câu ${state.activeRandomRange.start}–${state.activeRandomRange.end}`;
     meta += state.randomAllowRepeat ? " • Có thể trùng lặp" : " • Không trùng lặp";
   }
   $("#quizMeta").textContent = meta;
@@ -891,6 +932,10 @@ function bindEvents() {
     const input = $(selector);
     if (input) input.addEventListener("change", syncOutlineRangeInputs);
   });
+  ["#randomRangeStart", "#randomRangeEnd"].forEach(selector => {
+    const input = $(selector);
+    if (input) input.addEventListener("change", syncRandomRangeInputs);
+  });
   const resetRandomBtn = $("#resetRandomBtn");
   if (resetRandomBtn) resetRandomBtn.addEventListener("click", () => resetRandomProgress(false));
 
@@ -905,6 +950,7 @@ function bindEvents() {
 function init() {
   syncRangeInputs();
   syncOutlineRangeInputs();
+  syncRandomRangeInputs();
   bindEvents();
   updateStats();
   updateWrongSidebarButton();

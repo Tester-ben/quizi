@@ -104,9 +104,19 @@
 
         <article class="mode-card" data-mode-card="random">
           <div class="mode-icon">🎲</div>
-          <h3>3. Random 45 câu</h3>
-          <p>Lấy ngẫu nhiên 45 câu không trùng lặp qua từng lượt làm. Khi không đủ 45 câu, web sẽ hỏi bạn có muốn làm phần câu còn lại không.</p>
-          <button class="card-btn" type="button" data-start-mode="random">Random 45 câu không trùng</button>
+          <h3>3. Random 50 câu</h3>
+          <p>Chọn khoảng câu cần lấy, ví dụ từ câu 1 đến câu 100. Web sẽ random 50 câu trong đúng khoảng đã chọn.</p>
+          <div class="range-box" aria-label="Chọn khoảng câu để random 50 câu">
+            <label>
+              <span>Từ câu</span>
+              <input id="randomRangeStart" type="number" min="1" value="1" />
+            </label>
+            <label>
+              <span>Đến câu</span>
+              <input id="randomRangeEnd" type="number" min="1" value="100" />
+            </label>
+          </div>
+          <button class="card-btn" type="button" data-start-mode="random">Random 50 câu không trùng</button>
           <div style="display:grid;gap:10px;margin-top:12px;">
             <button class="ghost-btn" id="resetRandomBtn" type="button">Reset random từ đầu</button>
             <button class="ghost-btn" type="button" data-start-random-repeat>Random lại có trùng lặp</button>
