@@ -6,6 +6,7 @@ const STORAGE_KEY = "quiz_outline_cursor_v1";
 const HISTORY_KEY = "quiz_latest_result_v1";
 const RANDOM_USED_KEY = "quiz_random_used_question_ids_v1";
 const SAVED_QUESTIONS_KEY = "quiz_saved_question_ids_v1";
+const DIFFICULT_QUESTIONS_KEY = "quiz_difficult_question_ids_v1";
 
 const state = {
   mode: "fixed",
@@ -46,6 +47,11 @@ const modeConfig = {
     title: "Làm lại câu đã lưu",
     subtitle: "Luyện riêng những câu bạn đã bấm lưu trước đó. Đáp án A/B/C/D vẫn được đảo ngẫu nhiên.",
     label: "Câu đã lưu"
+  },
+  difficult: {
+    title: "Luyện tập câu khó",
+    subtitle: "Luyện riêng những câu bạn đã đánh dấu là câu khó. Đáp án A/B/C/D vẫn được đảo ngẫu nhiên.",
+    label: "Câu khó"
   },
   bank: {
     title: "Ngân hàng câu hỏi",
@@ -219,6 +225,61 @@ function updateSavedSidebarButton() {
   if (strong) strong.textContent = savedCount ? `Câu đã lưu (${savedCount})` : "Câu đã lưu";
 }
 
+function getDifficultQuestionIds() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(DIFFICULT_QUESTIONS_KEY) || "[]");
+    return Array.isArray(parsed) ? parsed.map(String) : [];
+  } catch (error) {
+    return [];
+  }
+}
+
+function setDifficultQuestionIds(ids) {
+  const uniqueIds = Array.from(new Set(ids.map(String)));
+  localStorage.setItem(DIFFICULT_QUESTIONS_KEY, JSON.stringify(uniqueIds));
+}
+
+function isQuestionDifficult(questionId) {
+  return getDifficultQuestionIds().includes(String(questionId));
+}
+
+function toggleDifficultQuestion(questionId) {
+  const id = String(questionId || "");
+  if (!id) return;
+  const difficultIds = getDifficultQuestionIds();
+  const exists = difficultIds.includes(id);
+  const nextIds = exists ? difficultIds.filter(itemId => itemId !== id) : [...difficultIds, id];
+  setDifficultQuestionIds(nextIds);
+  updateDifficultButtons();
+  updateDifficultSidebarButton();
+}
+
+function getDifficultQuestionsFromBank() {
+  const bank = getBank();
+  const difficultIds = getDifficultQuestionIds();
+  return difficultIds
+    .map(id => bank.find(question => String(question.id) === String(id)))
+    .filter(Boolean);
+}
+
+function updateDifficultButtons() {
+  $$('[data-difficult-question]').forEach(button => {
+    const difficult = isQuestionDifficult(button.dataset.difficultQuestion);
+    button.classList.toggle('marked-difficult', difficult);
+    button.setAttribute('aria-pressed', difficult ? 'true' : 'false');
+    button.innerHTML = difficult ? '<span>◆</span> Đã đánh dấu khó' : '<span>◇</span> Câu khó';
+  });
+}
+
+function updateDifficultSidebarButton() {
+  const difficultBtn = $("#difficultSidebarBtn");
+  if (!difficultBtn) return;
+  const difficultCount = getDifficultQuestionIds().length;
+  difficultBtn.disabled = difficultCount === 0;
+  const strong = difficultBtn.querySelector("strong");
+  if (strong) strong.textContent = difficultCount ? `Câu khó (${difficultCount})` : "Câu khó";
+}
+
 function resetRandomProgress(silent = false) {
   localStorage.removeItem(RANDOM_USED_KEY);
   updateStats();
@@ -233,9 +294,11 @@ function setSidebarActive(activeKey) {
   const homeBtn = $("#homeSidebarBtn");
   const wrongBtn = $("#wrongSidebarBtn");
   const savedBtn = $("#savedSidebarBtn");
+  const difficultBtn = $("#difficultSidebarBtn");
   if (homeBtn) homeBtn.classList.toggle("active", activeKey === "home");
   if (wrongBtn) wrongBtn.classList.toggle("active", activeKey === "wrong");
   if (savedBtn) savedBtn.classList.toggle("active", activeKey === "saved");
+  if (difficultBtn) difficultBtn.classList.toggle("active", activeKey === "difficult");
 }
 
 function updateWrongSidebarButton() {
@@ -461,6 +524,10 @@ function getQuestionsForMode(mode, options = {}) {
     return getSavedQuestionsFromBank().map(q => normalizeQuizQuestion(q, true));
   }
 
+  if (mode === "difficult") {
+    return getDifficultQuestionsFromBank().map(q => normalizeQuizQuestion(q, true));
+  }
+
   return [];
 }
 
@@ -474,6 +541,7 @@ function setMode(mode) {
   $$('[data-mode-card]').forEach(card => card.classList.toggle("selected", card.dataset.modeCard === mode));
   updateWrongSidebarButton();
   updateSavedSidebarButton();
+  updateDifficultSidebarButton();
 
   if (mode === "bank") {
     showBank();
@@ -494,7 +562,7 @@ function showHome() {
 }
 
 function showQuiz() {
-  setSidebarActive(state.mode === "saved" ? "saved" : null);
+  setSidebarActive(state.mode === "saved" ? "saved" : (state.mode === "difficult" ? "difficult" : null));
   renderQuestionNavigator();
   $("#homePanel").classList.add("hidden");
   $("#bankPanel").classList.add("hidden");
@@ -589,9 +657,14 @@ function renderQuiz() {
             <div class="question-number">Câu ${index + 1} <span class="question-code">${escapeHtml(question.code || `ID ${question.id}`)}</span></div>
             <p class="question-text">${escapeHtml(question.question)}</p>
           </div>
-          <button class="save-question-btn" type="button" data-save-question="${escapeHtml(question.id)}" aria-pressed="false">
-            <span>☆</span> Lưu câu
-          </button>
+          <div class="question-action-buttons">
+            <button class="save-question-btn" type="button" data-save-question="${escapeHtml(question.id)}" aria-pressed="false">
+              <span>☆</span> Lưu câu
+            </button>
+            <button class="difficult-question-btn" type="button" data-difficult-question="${escapeHtml(question.id)}" aria-pressed="false">
+              <span>◇</span> Câu khó
+            </button>
+          </div>
         </div>
         <div class="option-list">${optionsHtml}</div>
       </article>`;
@@ -605,7 +678,11 @@ function renderQuiz() {
   $$("#quizForm [data-save-question]").forEach(button => {
     button.addEventListener("click", () => toggleSavedQuestion(button.dataset.saveQuestion));
   });
+  $$("#quizForm [data-difficult-question]").forEach(button => {
+    button.addEventListener("click", () => toggleDifficultQuestion(button.dataset.difficultQuestion));
+  });
   updateSavedButtons();
+  updateDifficultButtons();
   renderQuestionNavigator();
 }
 
@@ -679,6 +756,7 @@ function submitQuiz() {
   renderReview();
   updateWrongSidebarButton();
   updateSavedSidebarButton();
+  updateDifficultSidebarButton();
   renderQuestionNavigator();
 
   $("#quizPanel").classList.add("hidden");
@@ -732,9 +810,14 @@ function renderReview() {
       <article class="review-card ${isCorrect ? "good" : "bad"}" id="review-question-${index}" data-review-status="${isCorrect ? "good" : "bad"}">
         <div class="review-topline">
           <span class="review-status ${isCorrect ? "good" : "bad"}">${isCorrect ? "Đúng" : "Sai / Chưa chọn"}</span>
-          <button class="save-question-btn compact" type="button" data-save-question="${escapeHtml(question.id)}" aria-pressed="false">
-            <span>☆</span> Lưu câu
-          </button>
+          <div class="question-action-buttons compact-actions">
+            <button class="save-question-btn compact" type="button" data-save-question="${escapeHtml(question.id)}" aria-pressed="false">
+              <span>☆</span> Lưu câu
+            </button>
+            <button class="difficult-question-btn compact" type="button" data-difficult-question="${escapeHtml(question.id)}" aria-pressed="false">
+              <span>◇</span> Câu khó
+            </button>
+          </div>
         </div>
         <h4>Câu ${originalNumber}. ${escapeHtml(question.question)}</h4>
         <p><strong>Bạn chọn:</strong> ${escapeHtml(getDisplayedAnswerText(question, question.userAnswer))}</p>
@@ -746,7 +829,11 @@ function renderReview() {
   $$("#reviewList [data-save-question]").forEach(button => {
     button.addEventListener("click", () => toggleSavedQuestion(button.dataset.saveQuestion));
   });
+  $$("#reviewList [data-difficult-question]").forEach(button => {
+    button.addEventListener("click", () => toggleDifficultQuestion(button.dataset.difficultQuestion));
+  });
   updateSavedButtons();
+  updateDifficultButtons();
 }
 
 function retryQuiz() {
@@ -840,6 +927,18 @@ function startSavedQuestions() {
   startQuiz("saved");
 }
 
+function startDifficultQuestions() {
+  const difficultQuestions = getDifficultQuestionsFromBank();
+  if (!difficultQuestions.length) {
+    alert("Bạn chưa đánh dấu câu khó nào. Bấm nút 'Câu khó' bên cạnh nút 'Lưu câu' trước nha.");
+    updateDifficultSidebarButton();
+    return;
+  }
+
+  setSidebarActive("difficult");
+  startQuiz("difficult");
+}
+
 function renderBank() {
   const keyword = ($("#searchInput")?.value || "").trim().toLowerCase();
   const bank = getBank().filter(question => {
@@ -870,7 +969,11 @@ function renderBank() {
   $$("#bankList [data-save-question]").forEach(button => {
     button.addEventListener("click", () => toggleSavedQuestion(button.dataset.saveQuestion));
   });
+  $$("#bankList [data-difficult-question]").forEach(button => {
+    button.addEventListener("click", () => toggleDifficultQuestion(button.dataset.difficultQuestion));
+  });
   updateSavedButtons();
+  updateDifficultButtons();
 }
 
 function bindEvents() {
@@ -894,6 +997,9 @@ function bindEvents() {
 
   const savedSidebarBtn = $("#savedSidebarBtn");
   if (savedSidebarBtn) savedSidebarBtn.addEventListener("click", startSavedQuestions);
+
+  const difficultSidebarBtn = $("#difficultSidebarBtn");
+  if (difficultSidebarBtn) difficultSidebarBtn.addEventListener("click", startDifficultQuestions);
 
   $$('[data-mode-card]').forEach(card => {
     card.addEventListener("click", (event) => {
@@ -955,6 +1061,7 @@ function init() {
   updateStats();
   updateWrongSidebarButton();
   updateSavedSidebarButton();
+  updateDifficultSidebarButton();
   setMode("fixed");
   setSidebarActive("home");
 }

@@ -1862,3 +1862,71 @@ button,
     white-space: normal;
   }
 }
+
+
+/* ===============================
+   Patch: difficult questions feature
+   =============================== */
+.question-action-buttons {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.difficult-question-btn {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 9px 13px;
+  border: 1px solid rgba(124, 58, 237, .22);
+  border-radius: 999px;
+  background: rgba(255,255,255,.86);
+  color: #111827;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(15,23,42,.06);
+  transition: transform .16s ease, border-color .16s ease, background .16s ease, color .16s ease, box-shadow .16s ease;
+}
+
+.difficult-question-btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(124, 58, 237, .62);
+  box-shadow: 0 14px 30px rgba(124,58,237,.14);
+}
+
+.difficult-question-btn span {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.difficult-question-btn.marked-difficult {
+  border-color: rgba(124, 58, 237, .62);
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+  color: #fff;
+}
+
+.difficult-question-btn.compact {
+  min-height: 34px;
+  padding: 7px 11px;
+  font-size: 11px;
+}
+
+.compact-actions {
+  align-items: flex-start;
+}
+
+@media (max-width: 720px) {
+  .question-action-buttons {
+    justify-content: flex-start;
+    width: 100%;
+  }
+}
