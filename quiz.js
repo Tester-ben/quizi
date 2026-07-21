@@ -525,7 +525,10 @@ function getQuestionsForMode(mode, options = {}) {
   }
 
   if (mode === "difficult") {
-    return getDifficultQuestionsFromBank().map(q => normalizeQuizQuestion(q, true));
+    // Mỗi lần bắt đầu hoặc bấm “Đổi đề”, đảo lại cả thứ tự câu hỏi
+    // và thứ tự đáp án A/B/C/D trong bộ câu khó.
+    return shuffleArray(getDifficultQuestionsFromBank())
+      .map(q => normalizeQuizQuestion(q, true));
   }
 
   return [];
