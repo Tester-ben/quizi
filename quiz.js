@@ -7,6 +7,7 @@ const HISTORY_KEY = "quiz_latest_result_v1";
 const RANDOM_USED_KEY = "quiz_random_used_question_ids_v1";
 const SAVED_QUESTIONS_KEY = "quiz_saved_question_ids_v1";
 const DIFFICULT_QUESTIONS_KEY = "quiz_difficult_question_ids_v1";
+const CUSTOM_LISTS_KEY = "quiz_custom_question_lists_v1";
 
 const state = {
   mode: "fixed",
@@ -19,7 +20,10 @@ const state = {
   activeRange: { start: DEFAULT_RANGE_START, end: DEFAULT_RANGE_END },
   activeOutlineRange: { start: DEFAULT_RANGE_START, end: DEFAULT_RANGE_END },
   activeRandomRange: { start: DEFAULT_RANGE_START, end: 100 },
-  randomAllowRepeat: false
+  randomAllowRepeat: false,
+  activeCollectionId: null,
+  collectionEditingId: null,
+  pendingCollectionQuestionId: null
 };
 
 const modeConfig = {
@@ -52,6 +56,11 @@ const modeConfig = {
     title: "Luyện tập câu khó",
     subtitle: "Luyện riêng những câu bạn đã đánh dấu là câu khó. Đáp án A/B/C/D vẫn được đảo ngẫu nhiên.",
     label: "Câu khó"
+  },
+  collection: {
+    title: "Mục lưu riêng",
+    subtitle: "Luyện riêng các câu đã được phân loại theo chủ đề bạn tự tạo.",
+    label: "Mục riêng"
   },
   bank: {
     title: "Ngân hàng câu hỏi",
@@ -280,6 +289,204 @@ function updateDifficultSidebarButton() {
   if (strong) strong.textContent = difficultCount ? `Câu khó (${difficultCount})` : "Câu khó";
 }
 
+
+function getCustomLists() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(CUSTOM_LISTS_KEY) || "[]");
+    return Array.isArray(parsed) ? parsed.map(item => ({
+      id: String(item.id || ""),
+      name: String(item.name || "Mục chưa đặt tên"),
+      questionIds: Array.isArray(item.questionIds) ? Array.from(new Set(item.questionIds.map(String))) : []
+    })).filter(item => item.id) : [];
+  } catch (error) {
+    return [];
+  }
+}
+
+function setCustomLists(lists) {
+  localStorage.setItem(CUSTOM_LISTS_KEY, JSON.stringify(lists));
+}
+
+function createCustomList(name) {
+  const cleanName = String(name || "").trim();
+  if (!cleanName) return null;
+  const lists = getCustomLists();
+  const list = { id: `list_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`, name: cleanName, questionIds: [] };
+  lists.push(list);
+  setCustomLists(lists);
+  renderCustomListNav();
+  return list;
+}
+
+function renameCustomList(listId, name) {
+  const cleanName = String(name || "").trim();
+  if (!cleanName) return;
+  const lists = getCustomLists().map(list => list.id === listId ? { ...list, name: cleanName } : list);
+  setCustomLists(lists);
+  renderCustomListNav();
+}
+
+async function deleteCustomList(listId) {
+  const list = getCustomLists().find(item => item.id === listId);
+  if (!list) return;
+  const ok = await showConfirmModal({
+    title: `Xóa mục “${list.name}”?`,
+    message: "Các câu hỏi không bị xóa khỏi đề, chỉ xóa mục phân loại này.",
+    confirmText: "Xóa mục",
+    cancelText: "Giữ lại"
+  });
+  if (!ok) return;
+  setCustomLists(getCustomLists().filter(item => item.id !== listId));
+  if (state.activeCollectionId === listId) showHome();
+  renderCustomListNav();
+}
+
+function getCollectionQuestions(listId) {
+  const list = getCustomLists().find(item => item.id === listId);
+  if (!list) return [];
+  const bank = getBank();
+  return list.questionIds.map(id => bank.find(question => String(question.id) === id)).filter(Boolean);
+}
+
+function openCustomListEditor(listId = null) {
+  const modal = $("#customListModal");
+  const input = $("#customListNameInput");
+  const title = $("#customListModalTitle");
+  const text = $("#customListModalText");
+  if (!modal || !input || !title || !text) return;
+  state.collectionEditingId = listId;
+  const list = listId ? getCustomLists().find(item => item.id === listId) : null;
+  title.textContent = list ? "Đổi tên mục lưu" : "Tạo mục lưu mới";
+  text.textContent = list ? "Nhập tên mới cho mục lưu này." : "Đặt tên để gom các câu cùng chủ đề.";
+  input.value = list?.name || "";
+  modal.classList.add("show");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+  setTimeout(() => input.focus(), 30);
+}
+
+function closeCustomListEditor() {
+  const modal = $("#customListModal");
+  if (modal) {
+    modal.classList.remove("show");
+    modal.setAttribute("aria-hidden", "true");
+  }
+  state.collectionEditingId = null;
+  document.body.classList.remove("modal-open");
+}
+
+function saveCustomListEditor() {
+  const input = $("#customListNameInput");
+  const name = input?.value.trim();
+  if (!name) {
+    alert("Bạn hãy nhập tên mục lưu.");
+    input?.focus();
+    return;
+  }
+  if (state.collectionEditingId) renameCustomList(state.collectionEditingId, name);
+  else createCustomList(name);
+  closeCustomListEditor();
+  if (state.pendingCollectionQuestionId) openQuestionListModal(state.pendingCollectionQuestionId);
+}
+
+function renderCustomListNav() {
+  const container = $("#customListNav");
+  if (!container) return;
+  const lists = getCustomLists();
+  container.innerHTML = lists.map((list, index) => `
+    <div class="custom-list-row ${state.activeCollectionId === list.id ? "active" : ""}">
+      <button class="custom-list-open" type="button" data-open-custom-list="${escapeHtml(list.id)}">
+        <span>${String(index + 5).padStart(2, "0")}</span>
+        <strong>${escapeHtml(list.name)}${list.questionIds.length ? ` (${list.questionIds.length})` : ""}</strong>
+      </button>
+      <button class="custom-list-menu" type="button" data-custom-list-menu="${escapeHtml(list.id)}" title="Tùy chọn">•••</button>
+      <div class="custom-list-popover" data-custom-list-popover="${escapeHtml(list.id)}">
+        <button type="button" data-rename-custom-list="${escapeHtml(list.id)}">Đổi tên</button>
+        <button type="button" data-delete-custom-list="${escapeHtml(list.id)}">Xóa mục</button>
+      </div>
+    </div>`).join("");
+
+  $$('[data-open-custom-list]').forEach(button => button.addEventListener("click", () => startCustomList(button.dataset.openCustomList)));
+  $$('[data-custom-list-menu]').forEach(button => button.addEventListener("click", event => {
+    event.stopPropagation();
+    const id = button.dataset.customListMenu;
+    $$('[data-custom-list-popover]').forEach(pop => pop.classList.toggle("show", pop.dataset.customListPopover === id && !pop.classList.contains("show")));
+  }));
+  $$('[data-rename-custom-list]').forEach(button => button.addEventListener("click", () => openCustomListEditor(button.dataset.renameCustomList)));
+  $$('[data-delete-custom-list]').forEach(button => button.addEventListener("click", () => deleteCustomList(button.dataset.deleteCustomList)));
+}
+
+function openQuestionListModal(questionId) {
+  const lists = getCustomLists();
+  if (!lists.length) {
+    state.pendingCollectionQuestionId = String(questionId);
+    openCustomListEditor();
+    return;
+  }
+  state.pendingCollectionQuestionId = String(questionId);
+  const modal = $("#questionListModal");
+  const options = $("#questionListOptions");
+  options.innerHTML = lists.map(list => `
+    <label class="question-list-option">
+      <input type="checkbox" value="${escapeHtml(list.id)}" ${list.questionIds.includes(String(questionId)) ? "checked" : ""} />
+      <span><strong>${escapeHtml(list.name)}</strong><small>${list.questionIds.length} câu</small></span>
+    </label>`).join("");
+  modal.classList.add("show");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+}
+
+function closeQuestionListModal() {
+  const modal = $("#questionListModal");
+  if (modal) {
+    modal.classList.remove("show");
+    modal.setAttribute("aria-hidden", "true");
+  }
+  state.pendingCollectionQuestionId = null;
+  document.body.classList.remove("modal-open");
+}
+
+function saveQuestionListMembership() {
+  const questionId = String(state.pendingCollectionQuestionId || "");
+  if (!questionId) return closeQuestionListModal();
+  const selected = new Set($$("#questionListOptions input:checked").map(input => input.value));
+  const lists = getCustomLists().map(list => {
+    const ids = new Set(list.questionIds);
+    selected.has(list.id) ? ids.add(questionId) : ids.delete(questionId);
+    return { ...list, questionIds: Array.from(ids) };
+  });
+  setCustomLists(lists);
+  closeQuestionListModal();
+  renderCustomListNav();
+  updateCollectionButtons();
+}
+
+function isQuestionInAnyCustomList(questionId) {
+  return getCustomLists().some(list => list.questionIds.includes(String(questionId)));
+}
+
+function updateCollectionButtons() {
+  $$('[data-add-to-list]').forEach(button => {
+    const added = isQuestionInAnyCustomList(button.dataset.addToList);
+    button.classList.toggle("added-to-list", added);
+    button.innerHTML = added ? '<span>▣</span> Đã phân loại' : '<span>＋</span> Thêm vào mục';
+  });
+}
+
+function startCustomList(listId) {
+  const list = getCustomLists().find(item => item.id === listId);
+  if (!list || !list.questionIds.length) {
+    alert("Mục này chưa có câu hỏi. Hãy bấm “Thêm vào mục” ở một câu hỏi trước.");
+    return;
+  }
+  state.activeCollectionId = listId;
+  state.mode = "collection";
+  modeConfig.collection.title = list.name;
+  modeConfig.collection.subtitle = `Luyện riêng ${list.questionIds.length} câu trong mục “${list.name}”.`;
+  modeConfig.collection.label = list.name;
+  startQuiz("collection");
+}
+
 function resetRandomProgress(silent = false) {
   localStorage.removeItem(RANDOM_USED_KEY);
   updateStats();
@@ -295,10 +502,12 @@ function setSidebarActive(activeKey) {
   const wrongBtn = $("#wrongSidebarBtn");
   const savedBtn = $("#savedSidebarBtn");
   const difficultBtn = $("#difficultSidebarBtn");
+  if (activeKey !== "collection") state.activeCollectionId = null;
   if (homeBtn) homeBtn.classList.toggle("active", activeKey === "home");
   if (wrongBtn) wrongBtn.classList.toggle("active", activeKey === "wrong");
   if (savedBtn) savedBtn.classList.toggle("active", activeKey === "saved");
   if (difficultBtn) difficultBtn.classList.toggle("active", activeKey === "difficult");
+  renderCustomListNav();
 }
 
 function updateWrongSidebarButton() {
@@ -525,10 +734,11 @@ function getQuestionsForMode(mode, options = {}) {
   }
 
   if (mode === "difficult") {
-    // Mỗi lần bắt đầu hoặc bấm “Đổi đề”, đảo lại cả thứ tự câu hỏi
-    // và thứ tự đáp án A/B/C/D trong bộ câu khó.
-    return shuffleArray(getDifficultQuestionsFromBank())
-      .map(q => normalizeQuizQuestion(q, true));
+    return shuffleArray(getDifficultQuestionsFromBank()).map(q => normalizeQuizQuestion(q, true));
+  }
+
+  if (mode === "collection") {
+    return shuffleArray(getCollectionQuestions(state.activeCollectionId)).map(q => normalizeQuizQuestion(q, true));
   }
 
   return [];
@@ -565,7 +775,7 @@ function showHome() {
 }
 
 function showQuiz() {
-  setSidebarActive(state.mode === "saved" ? "saved" : (state.mode === "difficult" ? "difficult" : null));
+  setSidebarActive(state.mode === "saved" ? "saved" : (state.mode === "difficult" ? "difficult" : (state.mode === "collection" ? "collection" : null)));
   renderQuestionNavigator();
   $("#homePanel").classList.add("hidden");
   $("#bankPanel").classList.add("hidden");
@@ -667,6 +877,9 @@ function renderQuiz() {
             <button class="difficult-question-btn" type="button" data-difficult-question="${escapeHtml(question.id)}" aria-pressed="false">
               <span>◇</span> Câu khó
             </button>
+            <button class="collection-question-btn" type="button" data-add-to-list="${escapeHtml(question.id)}">
+              <span>＋</span> Thêm vào mục
+            </button>
           </div>
         </div>
         <div class="option-list">${optionsHtml}</div>
@@ -684,8 +897,12 @@ function renderQuiz() {
   $$("#quizForm [data-difficult-question]").forEach(button => {
     button.addEventListener("click", () => toggleDifficultQuestion(button.dataset.difficultQuestion));
   });
+  $$("#quizForm [data-add-to-list]").forEach(button => {
+    button.addEventListener("click", () => openQuestionListModal(button.dataset.addToList));
+  });
   updateSavedButtons();
   updateDifficultButtons();
+  updateCollectionButtons();
   renderQuestionNavigator();
 }
 
@@ -820,6 +1037,9 @@ function renderReview() {
             <button class="difficult-question-btn compact" type="button" data-difficult-question="${escapeHtml(question.id)}" aria-pressed="false">
               <span>◇</span> Câu khó
             </button>
+            <button class="collection-question-btn compact" type="button" data-add-to-list="${escapeHtml(question.id)}">
+              <span>＋</span> Thêm vào mục
+            </button>
           </div>
         </div>
         <h4>Câu ${originalNumber}. ${escapeHtml(question.question)}</h4>
@@ -835,8 +1055,12 @@ function renderReview() {
   $$("#reviewList [data-difficult-question]").forEach(button => {
     button.addEventListener("click", () => toggleDifficultQuestion(button.dataset.difficultQuestion));
   });
+  $$("#reviewList [data-add-to-list]").forEach(button => {
+    button.addEventListener("click", () => openQuestionListModal(button.dataset.addToList));
+  });
   updateSavedButtons();
   updateDifficultButtons();
+  updateCollectionButtons();
 }
 
 function retryQuiz() {
@@ -1004,6 +1228,24 @@ function bindEvents() {
   const difficultSidebarBtn = $("#difficultSidebarBtn");
   if (difficultSidebarBtn) difficultSidebarBtn.addEventListener("click", startDifficultQuestions);
 
+  $("#addCustomListBtn")?.addEventListener("click", () => openCustomListEditor());
+  $("#customListModalClose")?.addEventListener("click", closeCustomListEditor);
+  $("#customListModalCancel")?.addEventListener("click", closeCustomListEditor);
+  $("#customListModalSave")?.addEventListener("click", saveCustomListEditor);
+  $("#customListNameInput")?.addEventListener("keydown", event => {
+    if (event.key === "Enter") saveCustomListEditor();
+  });
+  $("#questionListModalClose")?.addEventListener("click", closeQuestionListModal);
+  $("#questionListModalCancel")?.addEventListener("click", closeQuestionListModal);
+  $("#questionListModalSave")?.addEventListener("click", saveQuestionListMembership);
+  $("#createListInsideModalBtn")?.addEventListener("click", () => {
+    $("#questionListModal")?.classList.remove("show");
+    openCustomListEditor();
+  });
+  document.addEventListener("click", event => {
+    if (!event.target.closest(".custom-list-row")) $$('[data-custom-list-popover]').forEach(pop => pop.classList.remove("show"));
+  });
+
   $$('[data-mode-card]').forEach(card => {
     card.addEventListener("click", (event) => {
       if (event.target.closest("button, input, label")) return;
@@ -1065,6 +1307,7 @@ function init() {
   updateWrongSidebarButton();
   updateSavedSidebarButton();
   updateDifficultSidebarButton();
+  renderCustomListNav();
   setMode("fixed");
   setSidebarActive("home");
 }

@@ -34,6 +34,11 @@
           <span>04</span>
           <strong>Câu khó</strong>
         </button>
+        <div class="custom-list-header">
+          <span>Mục lưu riêng</span>
+          <button class="custom-list-add" id="addCustomListBtn" type="button" title="Tạo mục lưu mới" aria-label="Tạo mục lưu mới">+</button>
+        </div>
+        <div class="custom-list-nav" id="customListNav"></div>
       </nav>
 
       <div class="sidebar-card">
@@ -189,6 +194,38 @@
       <div class="modal-actions">
         <button class="ghost-btn modal-cancel" id="confirmModalCancel" type="button">Ở lại</button>
         <button class="primary-btn modal-confirm" id="confirmModalConfirm" type="button">Thoát về trang chủ</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="customListModal" aria-hidden="true">
+    <div class="confirm-modal custom-list-modal" role="dialog" aria-modal="true" aria-labelledby="customListModalTitle">
+      <button class="modal-x" id="customListModalClose" type="button" aria-label="Đóng">×</button>
+      <p class="eyebrow">Mục lưu riêng</p>
+      <h3 id="customListModalTitle">Tạo mục lưu mới</h3>
+      <p id="customListModalText">Đặt tên để gom các câu cùng chủ đề.</p>
+      <label class="custom-list-name-label">
+        <span>Tên mục</span>
+        <input id="customListNameInput" type="text" maxlength="40" placeholder="Ví dụ: Chiến sĩ cách mạng" />
+      </label>
+      <div class="modal-actions">
+        <button class="ghost-btn" id="customListModalCancel" type="button">Hủy</button>
+        <button class="primary-btn" id="customListModalSave" type="button">Lưu mục</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="questionListModal" aria-hidden="true">
+    <div class="confirm-modal question-list-modal" role="dialog" aria-modal="true" aria-labelledby="questionListModalTitle">
+      <button class="modal-x" id="questionListModalClose" type="button" aria-label="Đóng">×</button>
+      <p class="eyebrow">Phân loại câu hỏi</p>
+      <h3 id="questionListModalTitle">Thêm câu vào mục</h3>
+      <p>Chọn một hoặc nhiều mục. Bạn có thể tạo thêm mục mới bất cứ lúc nào.</p>
+      <div class="question-list-options" id="questionListOptions"></div>
+      <button class="ghost-btn full-width-btn" id="createListInsideModalBtn" type="button">+ Tạo mục mới</button>
+      <div class="modal-actions">
+        <button class="ghost-btn" id="questionListModalCancel" type="button">Hủy</button>
+        <button class="primary-btn" id="questionListModalSave" type="button">Cập nhật</button>
       </div>
     </div>
   </div>
